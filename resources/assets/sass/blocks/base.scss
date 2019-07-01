@@ -1,0 +1,24 @@
+html.block-preview {
+    body {
+        padding: 1.5rem .25rem;
+    }
+
+    .block {
+        // margin-bottom: 1.5rem;
+    }
+}
+
+.block {
+    display: block;
+
+    .content {
+        a:not(.sharer) {
+            text-decoration: underline;
+
+            &:hover,
+            &:focus {
+                text-decoration: none;
+            }
+        }
+    }
+}

@@ -1,0 +1,17 @@
+$easing                     : ease-out;
+$radius-small               : 0;
+$radius                     : 0;
+$radius-large               : 0;
+$radius-rounded             : 1000px;
+$speed                      : 90ms;
+
+$control-radius             : $radius;
+$control-radius-small       : $radius-small;
+
+$control-border-width       : 1px;
+
+$control-height             : 2.25em;
+$control-line-height        : 1.5;
+
+$control-padding-vertical   : calc(0.375em - #{$control-border-width});
+$control-padding-horizontal : calc(0.625em - #{$control-border-width});

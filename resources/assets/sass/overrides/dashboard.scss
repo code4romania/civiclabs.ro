@@ -1,0 +1,55 @@
+html.dashboard {
+    background-color: $light;
+    font-size: $body-size;
+
+    body {
+        min-height: 100vh;
+    }
+
+    .navbar {
+        margin: 0px;
+
+        .navbar-item.has-dropdown {
+            overflow: hidden;
+            cursor: pointer;
+            background: none;
+            color: inherit;
+            border: 0;
+
+            .level-left {
+                margin-right: .5rem;
+            }
+        }
+    }
+
+    .tag {
+        &.tag-evaluation {
+            background-color: $primary;
+            color: $primary-invert;
+        }
+
+        &.tag-implementation {}
+        &.tag-opencall {
+            background-color: $success;
+            color: $success-invert;
+        }
+        &.tag-adopt {}
+    }
+
+    .field {
+        word-break: break-all;
+
+        .filename {
+            max-width: 17rem;
+            text-overflow: clip;
+            overflow: hidden;
+            display: block;
+        }
+    }
+
+
+    b-dropdown, b-collapse,
+    c-evaluation-form {
+        display: none;
+    }
+}

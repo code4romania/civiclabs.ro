@@ -1,0 +1,37 @@
+.block-image {
+    .image {
+        box-shadow: 0px 0px 1px $grey-lighter;
+    }
+
+    .caption {
+        padding-top: $size-6 / 2;
+        padding-bottom: $size-6;
+
+        @include tablet {
+            max-width: $tablet / 2;
+            margin: 0 auto;
+        }
+
+        @include desktop {
+            max-width: ($desktop - (2 * $gap)) / 2;
+        }
+
+        @include widescreen {
+            max-width: ($widescreen - (2 * $gap)) / 2;
+        }
+
+        @include fullhd {
+            max-width: ($fullhd - (2 * $gap)) / 2;
+        }
+    }
+}
+
+.image {
+    img.is-fluid {
+        max-height: 90%;
+        max-width: 90%;
+        margin: auto;
+        height: auto;
+        width: auto;
+    }
+}

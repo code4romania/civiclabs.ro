@@ -1,0 +1,24 @@
+.block-partners {
+    .partner {
+        .image {
+            border: 1px solid $grey-lighter;
+        }
+
+        a {
+            display: block;
+
+            img {
+                transition: transform $speed;
+            }
+
+            &:hover,
+            &:focus {
+                text-decoration: underline;
+
+                img {
+                    transform: scale(0.9);
+                }
+            }
+        }
+    }
+}

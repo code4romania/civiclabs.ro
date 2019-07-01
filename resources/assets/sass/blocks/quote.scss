@@ -1,0 +1,54 @@
+.block-quote {
+    text-align: right;
+}
+
+blockquote {
+    background-color: $content-blockquote-background-color;
+    padding: $content-blockquote-padding;
+    position: relative;
+    text-align: left;
+    padding: 1rem 0;
+    margin: 0 auto;
+    border: none;
+    z-index: 1;
+
+    &::before {
+        font-family: $family-serif;
+        content: open-quote;
+        position: absolute;
+        font-weight: 600;
+        font-size: 10em;
+        color: $primary;
+        line-height: 1;
+        opacity: .25;
+        z-index: -1;
+        left: 0;
+        top: 0;
+    }
+
+    &::after {
+        content: no-close-quote;
+    }
+
+    em {
+        font-size: 90%;
+    }
+
+    p {
+        padding: 0;
+        margin: 0;
+
+
+    }
+
+    + cite {
+        font-style: normal;
+    }
+
+    @at-root {
+        html[lang="ro"] &::before {
+            bottom: 0;
+            top: auto;
+        }
+    }
+}

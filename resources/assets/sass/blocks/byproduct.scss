@@ -1,0 +1,17 @@
+.block-byproducts {
+    .title,
+    .byproduct-author a {
+        color: inherit;
+    }
+
+    .byproduct-actions {
+
+    }
+}
+
+
+@keyframes dash {
+    to {
+        stroke-dashoffset: 200;
+    }
+}

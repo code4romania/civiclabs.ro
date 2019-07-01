@@ -1,0 +1,13 @@
+$card-color                    : $text;
+$card-background-color         : $white;
+$card-shadow                   : 0 2px 3px rgba($black, 0.1), 0 0 0 1px rgba($black, 0.1);
+
+$card-header-background-color  : transparent;
+$card-header-color             : $text-strong;
+$card-header-shadow            : 0 1px 2px rgba($black, 0.1);
+$card-header-weight            : $weight-bold;
+
+$card-content-background-color : transparent;
+
+$card-footer-background-color  : transparent;
+$card-footer-border-top        : 1px solid $border;

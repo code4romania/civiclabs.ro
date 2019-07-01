@@ -1,0 +1,92 @@
+$black              : #000;
+$black-bis          : #111;
+$black-ter          : #222;
+
+$grey-darker        : #333;
+$grey-dark          : #444;
+$grey               : #888;
+$grey-light         : #BBB;
+$grey-lighter       : #DDD;
+
+$white-ter          : #EEE;
+$white-bis          : #F8F8F8;
+$white              : #FFF;
+
+$primary            : #FC0;
+$link               : $black-ter;
+$info               : #00F;
+
+$success            : #00A237;
+$warning            : #FC0;
+$danger             : #CC1F14;
+
+$light              : $white-ter;
+$dark               : $grey-darker;
+
+// Invert colors
+$primary-invert     : $black-bis;
+$link-invert        : $white; // findColorInvert($link);
+$info-invert        : findColorInvert($info);
+$success-invert     : findColorInvert($success);
+$warning-invert     : findColorInvert($warning);
+$danger-invert      : findColorInvert($danger);
+$light-invert       : $dark;
+$dark-invert        : $light;
+
+// General colors
+$background         : $white-ter;
+
+$border             : $grey-lighter;
+$border-hover       : $grey-light;
+
+// Text colors
+$text               : $black-ter;
+$text-invert        : findColorInvert($text);
+$text-light         : $grey;
+$text-strong        : $grey-darker;
+
+// Code colors
+$code               : $red;
+$code-background    : $background;
+
+$pre                : $text;
+$pre-background     : $background;
+
+// Link colors
+$link-visited       : $purple;
+
+$link-hover         : $grey-darker;
+$link-hover-border  : $grey-light;
+
+$link-focus         : $grey-darker;
+$link-focus-border  : $link;
+
+$link-active        : $grey-darker;
+$link-active-border : $grey-dark;
+
+// Color maps
+$colors : (
+    'white'        : ($white, $black),
+    'black'        : ($black, $white),
+    'light'        : ($light, $light-invert),
+    'dark'         : ($dark, $dark-invert),
+
+    'primary'      : ($primary, $primary-invert),
+    'link'         : ($link, $link-invert),
+    'info'         : ($info, $info-invert),
+    'success'      : ($success, $success-invert),
+    'warning'      : ($warning, $warning-invert),
+    'danger'       : ($danger, $danger-invert)
+);
+
+$shades : (
+    'black-bis'    : $black-bis,
+    'black-ter'    : $black-ter,
+    'grey-darker'  : $grey-darker,
+    'grey-dark'    : $grey-dark,
+    'grey'         : $grey,
+    'grey-light'   : $grey-light,
+    'grey-lighter' : $grey-lighter,
+    'white-ter'    : $white-ter,
+    'white-bis'    : $white-bis
+);

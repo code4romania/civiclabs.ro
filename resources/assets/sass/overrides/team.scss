@@ -1,0 +1,19 @@
+.team-list {
+    .team-member {
+        .image {
+            margin-bottom: .625rem;
+        }
+
+        a:hover {
+            .title {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.team-profile {
+    .hero .hero-image img {
+        object-fit: contain;
+    }
+}

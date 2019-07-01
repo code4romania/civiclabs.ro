@@ -1,0 +1,14 @@
+$dropdown-content-background-color     : $white;
+$dropdown-content-arrow                : $link;
+$dropdown-content-offset               : 4px;
+$dropdown-content-radius               : $radius;
+$dropdown-content-shadow               : 0 2px 3px rgba($black, 0.1), 0 0 0 1px rgba($black, 0.1);
+$dropdown-content-z                    : 20;
+
+$dropdown-item-color                   : $grey-dark;
+$dropdown-item-hover-color             : $black;
+$dropdown-item-hover-background-color  : $background;
+$dropdown-item-active-color            : $link-invert;
+$dropdown-item-active-background-color : $link;
+
+$dropdown-divider-background-color     : $border;

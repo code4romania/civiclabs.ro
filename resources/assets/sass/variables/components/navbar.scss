@@ -1,0 +1,47 @@
+$navbar-background-color                      : $white;
+$navbar-box-shadow-size                       : 0 2px 0 0;
+$navbar-box-shadow-color                      : $background;
+$navbar-height                                : 3.25rem;
+$navbar-padding-vertical                      : 1rem;
+$navbar-padding-horizontal                    : 2rem;
+$navbar-z                                     : 30;
+$navbar-fixed-z                               : 30;
+
+$navbar-item-color                            : $black-ter;
+$navbar-item-hover-color                      : $link;
+$navbar-item-hover-background-color           : $white-bis;
+$navbar-item-active-color                     : $black;
+$navbar-item-active-background-color          : transparent;
+$navbar-item-img-max-height                   : 1.75rem;
+
+$navbar-burger-color                          : $navbar-item-color;
+
+$navbar-tab-hover-background-color            : transparent;
+$navbar-tab-hover-border-bottom-color         : $link;
+$navbar-tab-active-color                      : $link;
+$navbar-tab-active-background-color           : transparent;
+$navbar-tab-active-border-bottom-color        : $link;
+$navbar-tab-active-border-bottom-style        : solid;
+$navbar-tab-active-border-bottom-width        : 3px;
+
+$navbar-dropdown-background-color             : $white;
+$navbar-dropdown-border-top                   : 2px solid $border;
+$navbar-dropdown-offset                       : -4px;
+$navbar-dropdown-arrow                        : $link;
+$navbar-dropdown-radius                       : $radius-large;
+$navbar-dropdown-z                            : 20;
+
+$navbar-dropdown-boxed-radius                 : $radius-large;
+$navbar-dropdown-boxed-shadow                 : 0 8px 8px rgba($black, 0.1), 0 0 0 1px rgba($black, 0.1);
+
+$navbar-dropdown-item-hover-color             : $black;
+$navbar-dropdown-item-hover-background-color  : $background;
+$navbar-dropdown-item-active-color            : $link;
+$navbar-dropdown-item-active-background-color : $background;
+
+$navbar-divider-background-color              : $background;
+$navbar-divider-height                        : 2px;
+
+$navbar-bottom-box-shadow-size                : 0 -2px 0 0;
+
+$navbar-breakpoint                            : $desktop;

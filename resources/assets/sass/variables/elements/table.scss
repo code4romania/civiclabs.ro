@@ -1,0 +1,24 @@
+$table-color                                   : $grey-darker;
+$table-background-color                        : $white;
+
+$table-cell-border                             : 1px solid $grey-lighter;
+$table-cell-border-width                       : 0 0 1px;
+$table-cell-padding                            : 0.5em 0.75em;
+$table-cell-heading-color                      : $text-strong;
+
+$table-head-cell-border-width                  : 0 0 2px;
+$table-head-cell-color                         : $text-strong;
+$table-foot-cell-border-width                  : 2px 0 0;
+$table-foot-cell-color                         : $text-strong;
+
+$table-head-background-color                   : transparent;
+$table-body-background-color                   : transparent;
+$table-foot-background-color                   : transparent;
+
+$table-row-hover-background-color              : $white-bis;
+
+$table-row-active-background-color             : $primary;
+$table-row-active-color                        : $primary-invert;
+
+$table-striped-row-even-background-color       : $white-bis;
+$table-striped-row-even-hover-background-color : $white-ter;

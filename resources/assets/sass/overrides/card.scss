@@ -1,0 +1,56 @@
+@mixin horizontal-card() {
+    flex-direction: row;
+
+    .card-image {
+        height: 100%;
+
+        .image {
+            height: 100%;
+        }
+
+        img {
+            object-fit: cover;
+            height: 100%;
+        }
+    }
+}
+
+.card {
+    flex-direction: column;
+    display: flex;
+    height: 100%;
+
+    .card-content {
+        position: relative;
+
+        &:first-of-type {
+            flex-grow: 1;
+        }
+
+        + .card-content {
+            padding-top: 0;
+        }
+    }
+
+    &.is-horizontal {
+        @include horizontal-card;
+    }
+
+    @include tablet {
+        &.is-horizontal-tablet {
+            @include horizontal-card;
+        }
+    }
+
+    @include desktop {
+        &.is-horizontal-desktop {
+            @include horizontal-card;
+        }
+    }
+
+    @include widescreen {
+        &.is-horizontal-widescreen {
+            @include horizontal-card;
+        }
+    }
+}

@@ -1,0 +1,10 @@
+.navbar-item {
+    svg {
+        height: $navbar-item-img-max-height;
+        display: block;
+
+        &.flag {
+            height: 1em;
+        }
+    }
+}

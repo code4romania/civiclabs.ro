@@ -1,0 +1,130 @@
+::selection {
+    color: $primary-invert;
+    background: $primary;
+    text-shadow: none;
+}
+
+html {
+    @include tablet {
+        font-size: 18px;
+    }
+}
+
+.section {
+    &.block {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    &.is-slim {
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    &.is-down {
+        padding-bottom: 0;
+    }
+}
+
+.columns {
+    &.is-reversed {
+        flex-direction: row-reverse;
+    }
+
+    &.is-spaced-between {
+        justify-content: space-between;
+    }
+
+    &.is-narrow {
+        max-width: 100%;
+    }
+
+    &.is-down {
+        padding-bottom: 0;
+    }
+}
+
+.container {
+    &.is-fluid {
+        @media screen and (min-width: 1920px) {
+            margin-right: auto;
+            margin-left: auto;
+            width: 1800px;
+
+            &.is-fullwidth {
+                width: 100%;
+            }
+        }
+
+        &.is-fullwidth-desktop {
+            @include desktop {
+                margin-right: auto;
+                margin-left: auto;
+                width: 100%;
+            }
+        }
+
+        &.is-fullwidth-widescreen {
+            @include widescreen {
+                margin-right: auto;
+                margin-left: auto;
+                width: 100%;
+            }
+        }
+    }
+}
+
+a {
+    &.is-link {
+        text-decoration: underline;
+
+        &:hover, &:focus {
+            text-decoration: none;
+        }
+
+        &.is-inversed {
+            text-decoration: none;
+
+            &:hover, &:focus {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.has-button {
+    justify-content: center;
+    display: inline-flex;
+    align-items: center;
+    color: currentColor;
+    position: relative;
+    padding: .5em;
+
+    + .has-button {
+        margin-left: .5em;
+    }
+
+    svg {
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        top: 0;
+
+        .frame {
+            stroke-dashoffset: 0;
+            stroke-dasharray: 200;
+            stroke-width: .125rem;
+            stroke: currentColor;
+        }
+    }
+
+    &:hover, &:focus {
+        svg {
+            .frame {
+                animation: dash (2.5 * $speed) linear forwards;
+            }
+        }
+    }
+}

@@ -1,0 +1,9 @@
+$list-background-color             : $white;
+$list-shadow                       : 0 2px 3px rgba($black, 0.1), 0 0 0 1px rgba($black, 0.1);
+$list-radius                       : $radius;
+
+$list-item-border                  : 1px solid $border;
+$list-item-color                   : $text;
+$list-item-active-background-color : $link;
+$list-item-active-color            : $link-invert;
+$list-item-hover-background-color  : $background;

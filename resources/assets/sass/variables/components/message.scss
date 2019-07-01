@@ -1,0 +1,19 @@
+$message-background-color               : $background;
+$message-radius                         : $radius;
+
+$message-header-background-color        : $text;
+$message-header-color                   : $text-invert;
+$message-header-weight                  : $weight-bold;
+$message-header-padding                 : 0.75em 1em;
+$message-header-radius                  : $radius;
+
+$message-body-border-color              : $border;
+$message-body-border-width              : 0 0 0 4px;
+$message-body-color                     : $text;
+$message-body-padding                   : 1.25em 1.5em;
+$message-body-radius                    : $radius;
+
+$message-body-pre-background-color      : $white;
+$message-body-pre-code-background-color : transparent;
+
+$message-header-body-border-width       : 0;

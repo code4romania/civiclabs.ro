@@ -1,0 +1,29 @@
+$modal-z                           : 40;
+
+$modal-background-background-color : rgba($black, 0.86);
+
+$modal-content-width               : 640px;
+$modal-content-margin-mobile       : 20px;
+$modal-content-spacing-mobile      : 120px;
+$modal-content-spacing-tablet      : 80px;
+
+$modal-close-dimensions            : 40px;
+$modal-close-right                 : 20px;
+$modal-close-top                   : 20px;
+
+$modal-card-spacing                : 40px;
+
+$modal-card-head-background-color  : $background;
+$modal-card-head-border-bottom     : 1px solid $border;
+$modal-card-head-padding           : 20px;
+$modal-card-head-radius            : $radius-large;
+
+$modal-card-title-color            : $text-strong;
+$modal-card-title-line-height      : 1;
+$modal-card-title-size             : $size-4;
+
+$modal-card-foot-radius            : $radius-large;
+$modal-card-foot-border-top        : 1px solid $border;
+
+$modal-card-body-background-color  : $white;
+$modal-card-body-padding           : 20px;

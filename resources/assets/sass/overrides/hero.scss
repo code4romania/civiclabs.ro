@@ -1,0 +1,55 @@
+.hero {
+    position: relative;
+
+    &.has-border {
+        border-bottom: 1px solid $grey-lighter;
+    }
+
+    &.is-fluid {
+        align-items: stretch;
+    }
+
+    .has-hero-image {
+        position: relative;
+        padding: 0;
+    }
+
+    .hero-image {
+        display: block;
+        height: 25rem;
+
+        @include desktop {
+            padding: .75rem;
+            height: 100%;
+        }
+
+        @include widescreen {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            top: 0;
+        }
+
+        img {
+            object-fit: cover;
+            display: block;
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    @at-root {
+        .blog-post & {
+            @include touch {
+                > .columns {
+                    margin: 0;
+                }
+
+                .hero-body {
+                    padding: 3rem 1.5rem;
+                }
+            }
+        }
+    }
+}

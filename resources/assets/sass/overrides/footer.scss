@@ -1,0 +1,63 @@
+.footer {
+    border-top: 2px solid $primary;
+    font-size: .875rem;
+    margin-top: 3rem;
+
+    > .container > .columns {
+        justify-content: space-between;
+    }
+
+    .social {
+        font-size: 1.25rem;
+        margin: 1rem 0 0;
+        display: block;
+
+        .icon {
+            margin: 0 .325rem;
+            color: $grey-light;
+
+            &:first-child {
+                margin-left: 0;
+            }
+
+            &:hover {
+                color: $link;
+            }
+        }
+    }
+
+    .footer-links {
+        .links-header {
+            text-transform: uppercase;
+            font-weight: 700;
+            margin: 0 0 1rem;
+        }
+
+        .links-item {
+            margin: 0 0 .75rem;
+
+            a {
+                color: $grey-light;
+
+                &:hover,
+                &:focus {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    .copy {
+        font-family: $family-monospace;
+
+        .brand {
+            display: inline-block;
+            margin: 1rem 0;
+        }
+
+        .logo {
+            width: 6.7125rem;
+            height: 1.875rem;
+        }
+    }
+}
