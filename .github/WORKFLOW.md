@@ -17,7 +17,7 @@ While this isn't an absolutely necessary step, if you plan on doing anything mor
 
 ```shell
 # Add 'upstream' repo to list of remotes
-git remote add upstream https://github.com/UPSTREAM-USER/ORIGINAL-PROJECT.git
+git remote add upstream https://github.com/code4romania/civiclabs.ro.git
 
 # Verify the new remote named 'upstream'
 git remote -v

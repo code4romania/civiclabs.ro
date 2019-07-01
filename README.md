@@ -1,10 +1,10 @@
-# Project name 
+# Civic Labs 
 
-[![GitHub contributors](https://img.shields.io/github/contributors/code4romania/standard-repo-template.svg?style=for-the-badge)](https://github.com/code4romania/standard-repo-template/graphs/contributors) [![GitHub last commit](https://img.shields.io/github/last-commit/code4romania/standard-repo-template.svg?style=for-the-badge)](https://github.com/code4romania/standard-repo-template/commits/master) [![License: MPL 2.0](https://img.shields.io/badge/license-MPL%202.0-brightgreen.svg?style=for-the-badge)](https://opensource.org/licenses/MPL-2.0)
+[![GitHub contributors](https://img.shields.io/github/contributors/code4romania/civiclabs.ro.svg?style=for-the-badge)](https://github.com/code4romania/civiclabs.ro/graphs/contributors) [![GitHub last commit](https://img.shields.io/github/last-commit/code4romania/civiclabs.ro.svg?style=for-the-badge)](https://github.com/code4romania/civiclabs.ro/commits/master) [![License: MPL 2.0](https://img.shields.io/badge/license-MPL%202.0-brightgreen.svg?style=for-the-badge)](https://opensource.org/licenses/MPL-2.0)
 
 Insert bullets description of the project if available.
 
-[See the project live](insert_link_here)
+[See the project live](https://civiclabs.ro)
 
 Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
 
