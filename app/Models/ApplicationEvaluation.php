@@ -39,16 +39,18 @@ class ApplicationEvaluation extends Model
         return $this->solution->id;
     }
 
-    public function getEvaluationAuthorAttribute() {
-
+    public function getEvaluationAuthorAttribute()
+    {
         return $this->evaluator->name;
     }
 
-    public function getEvaluationCreatedDateAttribute() {
+    public function getEvaluationCreatedDateAttribute()
+    {
         return $this->created_at->toDateTimeString();
     }
 
-    public function getEvaluationUpdatedDateAttribute() {
+    public function getEvaluationUpdatedDateAttribute()
+    {
         return $this->updated_at->toDateTimeString();
     }
 }

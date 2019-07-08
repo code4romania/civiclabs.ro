@@ -34,9 +34,23 @@ class PersonRepository extends ModuleRepository
             $fields['browsers'] = [];
         }
 
-        $fields['browsers']['domains'] = $this->getFormFieldsForBrowser($object, 'domains', 'solutions');
-        $fields['browsers']['solutions'] = $this->getFormFieldsForBrowser($object, 'solutions', 'solutions');
-        $fields['browsers']['byproducts'] = $this->getFormFieldsForBrowser($object, 'byproducts', 'solutions');
+        $fields['browsers']['domains'] = $this->getFormFieldsForBrowser(
+            $object,
+            'domains',
+            'solutions'
+        );
+
+        $fields['browsers']['solutions'] = $this->getFormFieldsForBrowser(
+            $object,
+            'solutions',
+            'solutions'
+        );
+
+        $fields['browsers']['byproducts'] = $this->getFormFieldsForBrowser(
+            $object,
+            'byproducts',
+            'solutions'
+        );
 
         return $fields;
     }

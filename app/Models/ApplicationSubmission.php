@@ -25,17 +25,20 @@ class ApplicationSubmission extends Model
         'published'
     ];
 
-    public function getSubmissionDateAttribute() {
+    public function getSubmissionDateAttribute()
+    {
         return $this->created_at
             ->timezone(config('app.display_timezone'))
             ->toDateTimeString();
     }
 
-    public function getSolutionNameAttribute() {
+    public function getSolutionNameAttribute()
+    {
         return $this->solution->title;
     }
 
-    public function getFormNameAttribute() {
+    public function getFormNameAttribute()
+    {
         return $this->form->title;
     }
 

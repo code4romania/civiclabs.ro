@@ -87,7 +87,6 @@ class SolutionController extends Controller
 
         $validationRules = getFormValidationRules($item->applicationForms->first()->blocks);
 
-        // dd($request->all(), $validationRules);
         $attributes = $request->validate($validationRules);
         $uuid = (string) Str::uuid();
 
@@ -96,12 +95,15 @@ class SolutionController extends Controller
          */
         foreach ($attributes['data'] as $sectionIndex => $section) {
             foreach ($section as $fieldIndex => $field) {
-                $inputName = sprintf('data.%d.%d.value',
-                    $sectionIndex, $fieldIndex
+                $inputName = sprintf(
+                    'data.%d.%d.value',
+                    $sectionIndex,
+                    $fieldIndex
                 );
 
                 if ($request->hasFile($inputName)) {
-                    $fileName = sprintf('%d.%d.%s',
+                    $fileName = sprintf(
+                        '%d.%d.%s',
                         $sectionIndex,
                         $fieldIndex,
                         $request->file($inputName)->getClientOriginalName()
@@ -113,9 +115,6 @@ class SolutionController extends Controller
                 }
             }
         }
-
-        // dd($request->hasFile('data.0.1.value'));
-        // $data = maybeProcessFileUploads($attributes['data']);
 
         $submission = new ApplicationSubmission();
         $submission->fill([

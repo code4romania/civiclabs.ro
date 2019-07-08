@@ -33,7 +33,12 @@ class ByproductRepository extends ModuleRepository
         if (!isset($fields['browsers'])) {
             $fields['browsers'] = [];
         }
-        $fields['browsers']['people'] = $this->getFormFieldsForBrowser($object, 'people', null, 'name');
+        $fields['browsers']['people'] = $this->getFormFieldsForBrowser(
+            $object,
+            'people',
+            null,
+            'name'
+        );
 
         return $fields;
     }

@@ -12,21 +12,13 @@ function getEmbedForUrl($url)
     }
 }
 
-function changeDateFormat($formatFrom = '', $formatTo = '', $dateString)
+function sum($a, $b)
 {
-    try {
-        return Carbon::createFromFormat($formatFrom, $dateString)
-            ->format($formatTo);
-    } catch (ErrorException $e) {
-        return null;
-    };
-}
-
-function sum($a, $b) {
     return $a + $b;
 }
 
-function mapTableColumns($options, $name) {
+function mapTableColumns($options, $name)
+{
     $column = [
         'field' => $name,
         'label' => __("dashboard.table.{$name}"),

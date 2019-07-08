@@ -8,7 +8,8 @@ use App\Models\Partner;
 use App\Models\Solution;
 use App\Notifications\ResetPassword;
 
-trait UserTrait {
+trait UserTrait
+{
 
     public function __construct(array $attributes = [])
     {
