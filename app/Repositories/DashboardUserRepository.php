@@ -2,14 +2,11 @@
 
 namespace App\Repositories;
 
-
 use A17\Twill\Repositories\ModuleRepository;
 use App\Models\DashboardUser;
 
 class DashboardUserRepository extends ModuleRepository
 {
-
-
     public function __construct(DashboardUser $model)
     {
         $this->model = $model;
@@ -30,8 +27,19 @@ class DashboardUserRepository extends ModuleRepository
             $fields['browsers'] = [];
         }
 
-        $fields['browsers']['partners'] = $this->getFormFieldsForBrowser($object, 'partners', null, 'title', 'partners');
-        $fields['browsers']['solutions'] = $this->getFormFieldsForBrowser($object, 'solutions', 'solutions');
+        $fields['browsers']['partners'] = $this->getFormFieldsForBrowser(
+            $object,
+            'partners',
+            null,
+            'title',
+            'partners'
+        );
+
+        $fields['browsers']['solutions'] = $this->getFormFieldsForBrowser(
+            $object,
+            'solutions',
+            'solutions'
+        );
 
         return $fields;
     }

@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-
 use A17\Twill\Models\Model;
 use App\Traits\UserTrait;
 

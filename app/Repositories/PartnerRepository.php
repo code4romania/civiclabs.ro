@@ -32,10 +32,37 @@ class PartnerRepository extends ModuleRepository
             $fields['browsers'] = [];
         }
 
-        $fields['browsers']['financesDomains'] = $this->getFormFieldsForBrowser($object, 'financesDomains', 'solutions', 'title', 'domains');
-        $fields['browsers']['financesSolutions'] = $this->getFormFieldsForBrowser($object, 'financesSolutions', 'solutions', 'title', 'solutions');
-        $fields['browsers']['implementsSolutions'] = $this->getFormFieldsForBrowser($object, 'implementsSolutions', 'solutions', 'title', 'solutions');
-        $fields['browsers']['developsSolutions'] = $this->getFormFieldsForBrowser($object, 'developsSolutions', 'solutions', 'title', 'solutions');
+        $fields['browsers']['financesDomains'] = $this->getFormFieldsForBrowser(
+            $object,
+            'financesDomains',
+            'solutions',
+            'title',
+            'domains'
+        );
+
+        $fields['browsers']['financesSolutions'] = $this->getFormFieldsForBrowser(
+            $object,
+            'financesSolutions',
+            'solutions',
+            'title',
+            'solutions'
+        );
+
+        $fields['browsers']['implementsSolutions'] = $this->getFormFieldsForBrowser(
+            $object,
+            'implementsSolutions',
+            'solutions',
+            'title',
+            'solutions'
+        );
+
+        $fields['browsers']['developsSolutions'] = $this->getFormFieldsForBrowser(
+            $object,
+            'developsSolutions',
+            'solutions',
+            'title',
+            'solutions'
+        );
 
         return $fields;
     }

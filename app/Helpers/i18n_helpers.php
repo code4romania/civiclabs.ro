@@ -8,16 +8,39 @@ function getLanguageLabelFromLocaleCode($code)
 
 function getTranslatedDayNamesJson()
 {
-    return collect(['Su', 'M', 'Tu', 'W', 'Th', 'F', 'S'])
-        ->map(function($name) {
-            return __("date.day.{$name}");
-        })->toJson();
+    $dayNames = [
+        'Su',
+        'M',
+        'Tu',
+        'W',
+        'Th',
+        'F',
+        'S',
+    ];
+
+    return collect($dayNames)->map(function ($name) {
+        return __("date.day.{$name}");
+    })->toJson();
 }
 
 function getTranslatedMonthNamesJson()
 {
-    return collect(['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'])
-        ->map(function($name) {
-            return __("date.month.{$name}");
-        })->toJson();
+    $monthNames = [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December',
+    ];
+
+    return collect($monthNames)->map(function ($name) {
+        return __("date.month.{$name}");
+    })->toJson();
 }

@@ -57,12 +57,49 @@ class SolutionRepository extends ModuleRepository
             $fields['browsers'] = [];
         }
 
-        $fields['browsers']['financers'] = $this->getFormFieldsForBrowser($object, 'financers', null, 'title', 'partners');
-        $fields['browsers']['developers'] = $this->getFormFieldsForBrowser($object, 'developers', null, 'title', 'partners');
-        $fields['browsers']['implementers'] = $this->getFormFieldsForBrowser($object, 'implementers', null, 'title', 'partners');
-        $fields['browsers']['domains'] = $this->getFormFieldsForBrowser($object, 'domains', 'solutions');
-        $fields['browsers']['applicationForms'] = $this->getFormFieldsForBrowser($object, 'applicationForms', 'applications');
-        $fields['browsers']['evaluators'] = $this->getFormFieldsForBrowser($object, 'evaluators', 'applications', 'name', 'dashboardUsers');
+        $fields['browsers']['financers'] = $this->getFormFieldsForBrowser(
+            $object,
+            'financers',
+            null,
+            'title',
+            'partners'
+        );
+
+        $fields['browsers']['developers'] = $this->getFormFieldsForBrowser(
+            $object,
+            'developers',
+            null,
+            'title',
+            'partners'
+        );
+
+        $fields['browsers']['implementers'] = $this->getFormFieldsForBrowser(
+            $object,
+            'implementers',
+            null,
+            'title',
+            'partners'
+        );
+
+        $fields['browsers']['domains'] = $this->getFormFieldsForBrowser(
+            $object,
+            'domains',
+            'solutions'
+        );
+
+        $fields['browsers']['applicationForms'] = $this->getFormFieldsForBrowser(
+            $object,
+            'applicationForms',
+            'applications'
+        );
+
+        $fields['browsers']['evaluators'] = $this->getFormFieldsForBrowser(
+            $object,
+            'evaluators',
+            'applications',
+            'name',
+            'dashboardUsers'
+        );
 
         if ($fields['repositories']) {
             foreach ($fields['repositories'] as $key => $value) {

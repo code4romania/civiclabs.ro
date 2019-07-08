@@ -71,27 +71,30 @@ class DashboardController extends Controller
                 break;
 
             case 'financer':
-                $evalData = $submission->solution->evaluators->reject(function($member) use ($submission) {
+                $evalData = $submission->solution->evaluators->reject(function ($member) use ($submission) {
                     return !$member->hasAccessToSolution($submission->solution);
-                })->map(function($member) use ($submission, $evalSections) {
+                })->map(function ($member) use ($submission, $evalSections) {
                     $evaluation = $submission->evaluations->where('evaluator_id', $member->id)->first();
 
                     if (!is_null($evaluation)) {
                         $evalData = collect($evaluation->data);
 
-                        $total = number_format($evalData->map(function($section) {
+                        $total = number_format($evalData->map(function ($section) {
                             return collect($section)->reduce('sum') / count($section);
                         })->reduce('sum'), 2);
 
                         // Combine scores with questions
-                        $details = $evalSections->map(function($section, $sectionIndex) use ($evalData) {
-                            $section['criteria'] = $section['criteria']->map(function($field, $fieldIndex) use ($evalData, $sectionIndex) {
-                                $field['value'] = number_format($evalData[$sectionIndex][$fieldIndex], 2);
+                        $details = $evalSections->map(function ($section, $sectionIndex) use ($evalData) {
+                            $section['criteria'] = $section['criteria']
+                                ->map(function ($field, $fieldIndex) use ($evalData, $sectionIndex) {
+                                    $field['value'] = number_format($evalData[$sectionIndex][$fieldIndex], 2);
 
-                                return $field;
-                            });
+                                    return $field;
+                                });
 
-                            $section['average'] = number_format(collect($section['criteria'])->pluck('value')->reduce('sum') / count($section['criteria']), 2);
+                            $sum = collect($section['criteria'])->pluck('value')->reduce('sum');
+
+                            $section['average'] = number_format($sum / count($section['criteria']), 2);
 
                             return $section;
                         });
@@ -115,7 +118,6 @@ class DashboardController extends Controller
                     ];
                 })->values();
 
-                // dd($evalData);
                 break;
 
             default:
@@ -161,15 +163,17 @@ class DashboardController extends Controller
         }
 
         $disk = Storage::disk('applicationDocuments');
-        $path = sprintf('/%s/%s',
-            $uuid, $filename
+        $path = sprintf(
+            '/%s/%s',
+            $uuid,
+            $filename
         );
 
         if (!$disk->exists($path)) {
             abort(404);
         }
 
-        return response()->stream(function() use ($path, $disk) {
+        return response()->stream(function () use ($path, $disk) {
             $stream = $disk->readStream($path);
             fpassthru($stream);
             if (is_resource($stream)) {

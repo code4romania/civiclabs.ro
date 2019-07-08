@@ -21,7 +21,8 @@ function getFormFieldParams($field)
     switch ($config['type']) {
         case 'date':
             /**
-             * If passed, minDate and maxDate have to be actual dates. This sets reasonable defaults if no explicit values configured
+             * If passed, minDate and maxDate have to be actual dates. This sets reasonable defaults if no explicit
+             * values configured
              *
              * @link https://github.com/buefy/buefy/blob/2da91e4a705c287caae120584a6a268db937d206/src/components/datepicker/Datepicker.vue#L231
              */
@@ -40,7 +41,12 @@ function getFormFieldParams($field)
 
             $config['minDate'] = $minDate->toDateTimeLocalString();
             $config['maxDate'] = $maxDate->toDateTimeLocalString();
-            $config['focusedDate']  = Carbon::today()->greaterThan($config['minDate']) ? Carbon::today()->toDateTimeLocalString() : $config['minDate'];
+
+            if (Carbon::today()->greaterThan($config['minDate'])) {
+                $config['focusedDate'] = Carbon::today()->toDateTimeLocalString();
+            } else {
+                $config['focusedDate'] = $config['minDate'];
+            }
 
             $config['validation'][] = 'date';
             $config['validation'][] = sprintf('after_or_equal:%s', $minDate->format('Y-m-d'));
@@ -115,7 +121,7 @@ function getFormFieldsBySection($blocks)
     return $blocks
         ->where('type', 'formSection')
         ->where('parent_id', null)
-        ->map(function($section) use ($blocks) {
+        ->map(function ($section) use ($blocks) {
             return [
                 'title' => $section->translatedinput('name'),
                 'description' => $section->translatedinput('description'),
@@ -133,13 +139,13 @@ function getEvalFieldsBySection($blocks)
     return $blocks
         ->where('type', 'evalSection')
         ->where('parent_id', null)
-        ->map(function($section, $sectionIndex) use ($blocks) {
+        ->map(function ($section, $sectionIndex) use ($blocks) {
             return [
                 'title' => $section->translatedinput('name'),
                 'criteria' => $blocks
                     ->where('type', 'evalField')
                     ->where('parent_id', $section->id)
-                    ->map(function($field, $fieldIndex) {
+                    ->map(function ($field, $fieldIndex) {
                         return [
                             'label' => $field->translatedinput('label'),
                         ];

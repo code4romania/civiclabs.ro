@@ -50,7 +50,7 @@ class DashboardUserController extends ModuleController
     protected function indexData($request)
     {
         return [
-            'roleList' => collect(config('dashboard.user_roles'))->map(function($label) {
+            'roleList' => collect(config('dashboard.user_roles'))->map(function ($label) {
                 return [
                     'label' => ucfirst($label),
                     'value' => $label,

@@ -32,8 +32,19 @@ class ApplicationFormRepository extends ModuleRepository
             $fields['browsers'] = [];
         }
 
-        $fields['browsers']['solutions'] = $this->getFormFieldsForBrowser($object, 'solutions', 'solutions');
-        $fields['browsers']['evaluators'] = $this->getFormFieldsForBrowser($object, 'evaluators', 'applications', 'name', 'dashboardUsers');
+        $fields['browsers']['solutions'] = $this->getFormFieldsForBrowser(
+            $object,
+            'solutions',
+            'solutions'
+        );
+
+        $fields['browsers']['evaluators'] = $this->getFormFieldsForBrowser(
+            $object,
+            'evaluators',
+            'applications',
+            'name',
+            'dashboardUsers'
+        );
 
         return $fields;
     }

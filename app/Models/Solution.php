@@ -99,20 +99,18 @@ class Solution extends Model implements Sortable
 
     public function applicationSubmissions()
     {
-        return $this->hasMany(ApplicationSubmission::class)->orderBy('created_at', 'desc');
+        return $this->hasMany(ApplicationSubmission::class)
+            ->orderBy('created_at', 'desc');
     }
 
     public function evaluators()
     {
-        return $this->morphToMany(DashboardUser::class, 'evaluable', null, null, 'user_id')->where('user_role', 'evaluator');
+        return $this->morphToMany(DashboardUser::class, 'evaluable', null, null, 'user_id')
+            ->where('user_role', 'evaluator');
     }
 
     public function getHasApplicationsOpenAttribute()
     {
-        if (!$this->applicationForms->count())
-            return false;
-
-        // if (!)
-        return;
+        return !!$this->applicationForms->count();
     }
 }

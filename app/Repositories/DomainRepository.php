@@ -37,9 +37,25 @@ class DomainRepository extends ModuleRepository
             $fields['browsers'] = [];
         }
 
-        $fields['browsers']['financers'] = $this->getFormFieldsForBrowser($object, 'financers', null, 'title', 'partners');
-        $fields['browsers']['subdomains'] = $this->getFormFieldsForBrowser($object, 'domains', 'solutions');
-        $fields['browsers']['solutions'] = $this->getFormFieldsForBrowser($object, 'solutions', 'solutions');
+        $fields['browsers']['financers'] = $this->getFormFieldsForBrowser(
+            $object,
+            'financers',
+            null,
+            'title',
+            'partners'
+        );
+
+        $fields['browsers']['subdomains'] = $this->getFormFieldsForBrowser(
+            $object,
+            'domains',
+            'solutions'
+        );
+
+        $fields['browsers']['solutions'] = $this->getFormFieldsForBrowser(
+            $object,
+            'solutions',
+            'solutions'
+        );
 
         return $fields;
     }
