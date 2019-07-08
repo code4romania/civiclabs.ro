@@ -46,6 +46,12 @@
                             {{ __("navigation.{$element['id']}") }}
                         </a>
                     </div>
+                @elseif ($element['id'] == 'login')
+                    <div class="navbar-item">
+                        <a href="{{ $url }}" class="button is-primary">
+                            {{ __("navigation.{$element['id']}") }}
+                        </a>
+                    </div>
                 @else
                     <a href="{{ $url }}" class="navbar-item {{ request()->url() == $url ? 'is-active' : '' }}">
                         {{ __("navigation.{$element['id']}") }}

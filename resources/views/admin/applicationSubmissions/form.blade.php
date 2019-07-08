@@ -38,6 +38,7 @@
 @section('fieldsets')
     @foreach ($fieldsets as $fieldsetIndex => $fieldset)
         <a17-fieldset title="{{ $fieldset['label'] }}" id="{{ $fieldset['fieldset'] }}">
+            @continue(!isset($item->data[$fieldsetIndex]))
             @foreach ($item->data[$fieldsetIndex] as $fieldIndex => $field)
                 <a17-textfield
                     label="{{ $field['label'] }}"

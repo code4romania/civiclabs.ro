@@ -6,8 +6,31 @@ use App\Models\ApplicationEvaluation;
 use App\Models\ApplicationForm;
 use App\Models\Partner;
 use App\Models\Solution;
+use App\Notifications\ResetPassword;
 
 trait UserTrait {
+
+    public function __construct(array $attributes = [])
+    {
+        /**
+         * Override twill-specific email templates causing email sending to fail.
+         * Applying this override here doesn't change the default admin email templates.
+         *
+         * @link https://github.com/area17/twill/issues/32
+         */
+        config([
+            'mail.markdown.paths' => [
+                resource_path('views/vendor/mail')
+            ]
+        ]);
+
+        parent::__construct($attributes);
+    }
+
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ResetPassword($token));
+    }
 
     public function getMorphClass()
     {
@@ -47,7 +70,9 @@ trait UserTrait {
         $solutions = collect(null);
         switch ($this->user_role) {
             case 'financer':
-                $solutions = $this->partners->first()->financesSolutions;
+                if ($this->partners->count()) {
+                    $solutions = $this->partners->first()->financesSolutions;
+                }
                 break;
 
             case 'evaluator':

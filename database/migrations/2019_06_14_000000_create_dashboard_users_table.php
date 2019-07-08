@@ -15,7 +15,7 @@ class CreateDashboardUsersTable extends Migration
     {
         Schema::create('dashboard_users', function (Blueprint $table) {
             createDefaultTableFields($table);
-
+            $table->timestamp('last_login_at')->nullable();
             $table->string('name')->nullable();
             $table->string('email')->unique();
             $table->string('password')->nullable();

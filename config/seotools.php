@@ -7,7 +7,7 @@ return [
          */
         'defaults'       => [
             'title'        => env('APP_NAME'), // set false to total remove
-            'description'  => 'sadgas', // set false to total remove
+            'description'  => '', // set false to total remove
             'separator'    => ' - ',
             'keywords'     => [],
             'canonical'    => null, // Set null for using Url::current(), set false to total remove

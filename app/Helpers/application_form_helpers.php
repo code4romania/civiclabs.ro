@@ -101,7 +101,7 @@ function getFormFieldParams($field)
 
             $config['validation'][] = 'string';
 
-            if (!$config['maxLength']) {
+            if ($config['maxLength']) {
                 $config['validation'][] = sprintf('max:%d', $config['maxLength']);
             }
             break;

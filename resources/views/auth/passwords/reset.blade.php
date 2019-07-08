@@ -6,58 +6,51 @@
         <div class="column is-6-tablet is-4-desktop is-3-fullhd">
             <div class="card">
                 <div class="card-header">
-                    <p class="card-header-title">{{ __('auth.forgotPassword.label') }}</p>
+                    <p class="card-header-title">{{ __('auth.resetPassword') }}</p>
                 </div>
 
-                <div class="card-body">
+                <div class="card-content">
                     <form method="POST" action="{{ route('password.update') }}">
                         @csrf
 
                         <input type="hidden" name="token" value="{{ $token }}">
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                        <b-field
+                            label="{{ __('dashboard.email') }}"
+                            @error('email')
+                                type="is-danger"
+                                message="{{ $message }}"
+                            @enderror
+                        >
+                            <b-input name="email" type="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus />
+                        </b-field>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
+                        <b-field
+                            label="{{ __('dashboard.password') }}"
+                            @error('password')
+                                type="is-danger"
+                                message="{{ $message }}"
+                            @enderror
+                        >
+                            <b-input name="password" type="password" required autocomplete="new-password" />
+                        </b-field>
 
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                        <b-field
+                            label="{{ __('dashboard.password.confirm') }}"
+                            @error('password')
+                                type="is-danger"
+                            @enderror
+                        >
+                            <b-input name="password_confirmation" type="password" required autocomplete="new-password" />
+                        </b-field>
+
+                        <b-field>
+                            <div class="buttons">
+                                <b-button tag="button" native-type="submit" type="is-primary">{{ __('auth.resetPassword') }}</b-button>
+
+                                <b-button tag="a" type="is-text" href="{{ route('login') }}">{{ __('auth.forgotPassword.back') }}</b-button>
                             </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Reset Password') }}
-                                </button>
-                            </div>
-                        </div>
+                        </b-field>
                     </form>
                 </div>
             </div>

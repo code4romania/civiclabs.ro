@@ -6,6 +6,7 @@ return [
     'solutions' => 'Soluții',
     'team'      => 'Echipa',
     'blog'      => 'Blog',
+    'login'     => 'Login',
     'donate'    => 'Donează',
 
     'links'     => 'Linkuri utile',

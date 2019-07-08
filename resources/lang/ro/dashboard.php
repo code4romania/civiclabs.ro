@@ -5,8 +5,9 @@ return [
     'login'                       => 'Log in',
     'rememberMe'                  => 'Remember me',
 
-    'email'                       => 'Email address',
-    'password'                    => 'Password',
+    'email'                       => 'Email',
+    'password'                    => 'Parola',
+    'password.confirm'            => 'Confirmă parola',
 
     'solutions.title'             => 'Soluții',
     'solutions.proposals'         => '{1}:count propunere|[2,19]:count propuneri|[20,*]:count de propuneri',

@@ -6,6 +6,7 @@ return [
     'solutions' => 'Solutions',
     'team'      => 'Team',
     'blog'      => 'Blog',
+    'login'     => 'Login',
     'donate'    => 'Donate',
 
     'links'     => 'Links',

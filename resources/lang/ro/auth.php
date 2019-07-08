@@ -24,4 +24,6 @@ return [
     'forgotPassword.submit' => 'Trimite link-ul de resetare a parolei',
     'forgotPassword.back'   => 'Înapoi la login',
 
+    'resetPassword'         => 'Resetează parola',
+
 ];

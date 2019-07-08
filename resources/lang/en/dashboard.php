@@ -7,6 +7,7 @@ return [
 
     'email'                       => 'Email address',
     'password'                    => 'Password',
+    'password.confirm'            => 'Confirm password',
 
     'solutions.title'             => 'Solutions',
     'solutions.proposals'         => '{1}:count proposal|[2,*]:count proposals',

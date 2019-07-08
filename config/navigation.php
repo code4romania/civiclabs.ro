@@ -16,6 +16,10 @@ return [
             'route' => 'blog.index',
         ],*/
         [
+            'id'    => 'login',
+            'route' => 'dashboard.home',
+        ],
+        [
             'id'    => 'donate',
             'url'   => 'https://code4.ro/ro/doneaza/',
         ]

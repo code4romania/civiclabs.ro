@@ -13,8 +13,9 @@
 ])
 
 @formField('select', [
-    'name'        => 'role',
+    'name'        => 'user_role',
     'label'       => 'Role',
+    'required'    => true,
     'placeholder' => 'Select user role',
     'options'     => collect(config('dashboard.user_roles')),
 ])

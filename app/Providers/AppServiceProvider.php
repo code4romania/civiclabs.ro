@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\DashboardUser;
+use App\Observers\DashboardUserObserver;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\ServiceProvider;
@@ -40,6 +42,8 @@ class AppServiceProvider extends ServiceProvider
         ]);
 
         $this->setProperLocale();
+
+        DashboardUser::observe(DashboardUserObserver::class);
     }
 
     private function requireHelpers()
