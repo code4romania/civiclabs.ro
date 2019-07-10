@@ -4,7 +4,7 @@
            <p>
                <b-icon icon="check-circle" type="is-success" size="is-large"></b-icon>
            </p>
-           <p v-text="$props.messageSuccess"></p>
+           <p v-text="$props.messages.success"></p>
         </div>
     </div>
     <form v-else @submit.prevent="submit">
@@ -23,6 +23,8 @@
 
                 <b-field
                     v-for="field, fieldIndex in section.fields"
+                    :type="{ 'is-danger': !!errors[sectionIndex][fieldIndex] }"
+                    :message="errors[sectionIndex][fieldIndex]"
                     :key="fieldIndex"
                     :label="field.label"
                     :addons="false"
@@ -116,17 +118,18 @@
                 type: String,
                 default: 'Send',
             },
-            messageSuccess: {
-                type: String,
-                default: 'Your application was successfully submitted!',
-            },
-            messageError: {
-                type: String,
-                default: 'Something went wrong. Please try again later!',
+            messages: {
+                type: Object,
+                default: () => ({
+                    'success' : '',
+                    'invalid' : '',
+                    'error'   : '',
+                }),
             },
         },
         data() {
             let models = [],
+                errors = [],
                 dateFields = [],
                 fileFields = [];
 
@@ -136,11 +139,16 @@
                         models[sectionIndex] = [];
                     }
 
+                    if (typeof errors[sectionIndex] == 'undefined') {
+                        errors[sectionIndex] = [];
+                    }
 
                     models[sectionIndex][fieldIndex] = {
                         label: field.label,
                         value: '',
                     };
+
+                    errors[sectionIndex][fieldIndex] = null;
 
                     switch(field.type) {
                         case 'date':
@@ -164,6 +172,7 @@
 
             return {
                 models: models,
+                errors: errors,
                 dateFields: dateFields,
                 fileFields: fileFields,
                 submitted: false,
@@ -192,13 +201,37 @@
                 }).then((response) => {
                     this.submitted = true;
                     this.clearLocalStorage();
-                }).catch((response) => {
-                    this.$toast.open({
-                        message: this.$props.messageError,
-                        type: 'is-danger',
+                }).catch((error) => {
+                    let toast = {
                         position: 'is-bottom',
-                    })
+                        type: 'is-danger',
+                        message: '',
+                    };
+
+                    if (error.response.data && error.response.data.errors) {
+                        this.clearValidationErrors();
+                        this.processValidationErrors(error.response.data.errors);
+                        toast.message = this.$props.messages.invalid;
+                    } else {
+                        toast.message = this.$props.messages.unknown;
+                    }
+
+                    this.$toast.open(toast);
                 });
+            },
+            clearValidationErrors() {
+                this.errors = this.errors.map(section => section.map(field => null));
+            },
+            processValidationErrors(errors) {
+                for (let key in errors) {
+                    let match = key.match(/data.([0-9]+).([0-9]+).value/i),
+                        sectionIndex = typeof match[1] !== 'undefined' ? parseInt(match[1]) : false,
+                        fieldIndex   = typeof match[2] !== 'undefined' ? parseInt(match[2]) : false;
+
+                    if (sectionIndex !== false && fieldIndex !== false) {
+                        this.errors[sectionIndex][fieldIndex] = errors[key][0];
+                    }
+                }
             },
             saveToLocalStorage() {
                 localStorage.setItem(this.formId, JSON.stringify(this.models));
@@ -245,7 +278,6 @@
         },
         created() {
             this.debouncedSaveToLocalStorage = utils.debounce(this.saveToLocalStorage, 1000);
-
         },
         watch: {
             models: {

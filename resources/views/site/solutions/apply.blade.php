@@ -22,8 +22,11 @@
                     form-id="{{ $item->id }}-{{ $form->id }}"
                     submit-label="{{ __('solution.button.submit') }}"
                     :sections="{{ getFormFieldsBySection($form->blocks) }}"
-                    message-success="{{ __('solution.event.submit.success') }}"
-                    message-error="{{ __('solution.event.submit.error') }}"
+                    :messages="{{ collect([
+                        'success' => __('solution.event.submit.success'),
+                        'invalid' => __('solution.event.submit.invalid'),
+                        'error'   => __('solution.event.submit.error'),
+                    ]) }}"
                 ></c-application-form>
             </div>
         </div>

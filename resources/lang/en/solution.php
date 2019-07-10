@@ -32,5 +32,6 @@ return [
     'modal.mailto.subject'       => 'I want to help',
 
     'event.submit.success'       => 'Your application was successfully sent!',
+    'event.submit.invalid'       => 'The form could not be validated. Please fix the errors above and try again!',
     'event.submit.error'         => 'Something went wrong. Please try again later!',
 ];

@@ -127,7 +127,5 @@ class SolutionController extends Controller
         $submission->solution()->associate($item);
 
         $submission->save();
-
-        return [$validationRules, $attributes];
     }
 }

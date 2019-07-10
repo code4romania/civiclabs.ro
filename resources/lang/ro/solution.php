@@ -32,5 +32,6 @@ return [
     'modal.mailto.subject'       => 'Vreau să ajut',
 
     'event.submit.success'       => 'Aplicația a fost trimisă cu succes!',
+    'event.submit.invalid'       => 'Formularul nu a putut fi validat. Te rugăm să corectezi erorile de mai sus și să încerci din nou!',
     'event.submit.error'         => 'Ceva nu a funcționat cum trebuie. Te rugăm să încerci mai târziu!',
 ];
