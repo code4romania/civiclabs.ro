@@ -4,7 +4,7 @@
            <p>
                <b-icon icon="check-circle" type="is-success" size="is-large"></b-icon>
            </p>
-           <p v-text="$props.messageSuccess"></p>
+           <p v-text="$props.messages.success"></p>
         </div>
     </div>
     <form v-else @submit.prevent="submit">
@@ -118,13 +118,13 @@
                 type: String,
                 default: 'Send',
             },
-            messageSuccess: {
-                type: String,
-                default: 'Your application was successfully submitted!',
-            },
-            messageError: {
-                type: String,
-                default: 'Something went wrong. Please try again later!',
+            messages: {
+                type: Object,
+                default: () => ({
+                    'success' : '',
+                    'invalid' : '',
+                    'error'   : '',
+                }),
             },
         },
         data() {
@@ -201,12 +201,22 @@
                 }).then((response) => {
                     this.submitted = true;
                     this.clearLocalStorage();
-                }).catch((response) => {
-                    this.$toast.open({
-                        message: this.$props.messageError,
-                        type: 'is-danger',
+                }).catch((error) => {
+                    let toast = {
                         position: 'is-bottom',
-                    })
+                        type: 'is-danger',
+                        message: '',
+                    };
+
+                    if (error.response.data && error.response.data.errors) {
+                        this.clearValidationErrors();
+                        this.processValidationErrors(error.response.data.errors);
+                        toast.message = this.$props.messages.invalid;
+                    } else {
+                        toast.message = this.$props.messages.unknown;
+                    }
+
+                    this.$toast.open(toast);
                 });
             },
             clearValidationErrors() {
