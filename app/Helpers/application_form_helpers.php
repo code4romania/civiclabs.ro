@@ -28,22 +28,22 @@ function getFormFieldParams($field)
              */
 
             if ($field->input('minDate')) {
-                $minDate = Carbon::parse($field->input('minDate'), 'UTC');
+                $minDate = Carbon::parse($field->input('minDate'), config('app.display_timezone'));
             } else {
                 $minDate = Carbon::today()->subYears(5);
             }
 
             if ($field->input('maxDate')) {
-                $maxDate = Carbon::parse($field->input('maxDate'), 'UTC');
+                $maxDate = Carbon::parse($field->input('maxDate'), config('app.display_timezone'));
             } else {
                 $maxDate = Carbon::today()->addYears(5);
             }
 
-            $config['minDate'] = $minDate->toDateTimeLocalString();
-            $config['maxDate'] = $maxDate->toDateTimeLocalString();
+            $config['minDate'] = $minDate->toIso8601String();
+            $config['maxDate'] = $maxDate->toIso8601String();
 
             if (Carbon::today()->greaterThan($config['minDate'])) {
-                $config['focusedDate'] = Carbon::today()->toDateTimeLocalString();
+                $config['focusedDate'] = Carbon::today()->toIso8601String();
             } else {
                 $config['focusedDate'] = $config['minDate'];
             }
