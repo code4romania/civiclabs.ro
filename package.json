@@ -28,7 +28,7 @@
         "eslint": "^5.16.0",
         "eslint-plugin-vue": "^5.2.3",
         "laravel-mix": "^4.0.16",
-        "lodash": "^4.17.5",
+        "lodash": "^4.17.13",
         "lodash.debounce": "^4.0.8",
         "purify-css": "^1.2.5",
         "purifycss-webpack": "^0.7.0",
