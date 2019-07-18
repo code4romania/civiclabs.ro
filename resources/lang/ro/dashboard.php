@@ -28,6 +28,7 @@ return [
     'table.submission_deadline'   => 'Deadline aplicare',
     'table.evaluation_deadline'   => 'Deadline evaluare',
     'table.actions'               => 'Acțiuni',
+    'table.note'                  => 'Notă de la evaluator',
 
     'table.evaluator'             => 'Nume',
     'table.evaluation_created_at' => 'Data evaluării inițiale',

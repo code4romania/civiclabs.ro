@@ -27,7 +27,7 @@
         <template slot="detail" slot-scope="props">
             <div class="message is-primary" v-if="props.row.note">
                 <div class="message-body">
-                    <p class="is-marginless is-size-7 has-text-weight-bold">{{ __('dashboard.jury.table.field.note') }}</p>
+                    <p class="is-marginless is-size-7 has-text-weight-bold">{{ __('dashboard.table.note') }}</p>
                     <p v-text="props.row.note"></p>
                 </div>
             </div>

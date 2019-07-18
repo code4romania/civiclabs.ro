@@ -179,7 +179,7 @@ function getEvalValidationRules($blocks)
     foreach ($sections as $sectionIndex => $section) {
         foreach ($section['criteria'] as $fieldIndex => $field) {
             $validationRules["data.${sectionIndex}.${fieldIndex}"] = [
-                'numeric', 'min:1', 'max:5',
+                'numeric', 'min:0', 'max:5',
             ];
         }
     }
