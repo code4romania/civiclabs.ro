@@ -15,9 +15,9 @@
                             v-model="points[sectionIndex][criterionIndex]"
                             type="is-primary"
                             required="true"
-                            min="1"
+                            min="0"
                             max="5"
-                            step="0.1"
+                            step="1"
                             size="is-small"
                             :disabled="readOnly"
                         ></b-numberinput>
