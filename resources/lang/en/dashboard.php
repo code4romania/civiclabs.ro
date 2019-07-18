@@ -28,6 +28,7 @@ return [
     'table.submission_deadline'   => 'Submission deadline',
     'table.evaluation_deadline'   => 'Evaluation deadline',
     'table.actions'               => 'Actions',
+    'table.note'                  => 'Evaluator note',
 
     'table.evaluator'             => 'Name',
     'table.evaluation_created_at' => 'Initial evaluation date',
