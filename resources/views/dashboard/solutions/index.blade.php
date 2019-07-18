@@ -27,8 +27,8 @@
         return [
             'solution_name'       => $solution->title,
             'application_count'   => $solution->applicationSubmissions->count(),
-            'submission_deadline' => $form->submission_deadline,
-            'evaluation_deadline' => $form->evaluation_deadline,
+            'submission_deadline' => $form->submission_deadline ?? '–',
+            'evaluation_deadline' => $form->evaluation_deadline ?? '–',
             'actions'             => sprintf('<a href="%s" class="button is-small is-primary">%s</a>',
                 route('dashboard.solution', ['solution' => $solution]),
                 __('dashboard.action.view_submissions')
