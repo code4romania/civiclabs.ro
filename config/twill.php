@@ -66,6 +66,8 @@ return [
 
     'google_maps_api_key' => env('GOOGLE_MAPS_API_KEY'),
 
+    'bind_exception_handler' => false,
+
     'breakpoints' => [
         'tablet'     => 720,
         'desktop'    => 1088,

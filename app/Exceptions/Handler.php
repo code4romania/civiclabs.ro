@@ -2,8 +2,9 @@
 
 namespace App\Exceptions;
 
+use A17\Twill\Exceptions\Handler as ExceptionHandler;
 use Exception;
-use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Auth\AuthenticationException;
 
 class Handler extends ExceptionHandler
 {
