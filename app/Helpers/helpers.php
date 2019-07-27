@@ -1,6 +1,8 @@
 <?php
 
+use A17\Twill\Models\Feature;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Relations\Relation;
 use Leewillis77\CachedEmbed\CachedEmbed;
 
 function getEmbedForUrl($url)
@@ -29,4 +31,16 @@ function mapTableColumns($options, $name)
     }
 
     return $column;
+}
+
+function getFeaturedMenuItems($bucketKey)
+{
+    return Feature::where('bucket_key', $bucketKey)->get()->filter(function ($feature) {
+        return !is_null(Relation::getMorphedModel($feature->featured_type));
+    })->map(function ($feature) {
+        return [
+            'title' => $feature->featured->title,
+            'url'   => Localization::getLocalizedURL(null, $feature->featured->slug),
+        ];
+    });
 }

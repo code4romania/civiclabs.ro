@@ -19,14 +19,9 @@
 
     <div aria-id="navbarTop" class="navbar-menu" v-bind:class="{ 'is-active': isNavbarOpen }">
         <div class="navbar-end">
-            @foreach (\A17\Twill\Models\Feature::forBucket('header') as $element)
-                @php
-                    $url = Localization::getLocalizedURL(null, $element->slug);
-                @endphp
-                <a
-                    href="{{ $url }}"
-                    class="navbar-item is-text {{ request()->url() == $url ? 'is-active' : '' }}">
-                    {{ $element->title }}
+            @foreach (getFeaturedMenuItems('header') as $item)
+                <a href="{{ $item['url'] }}" class="navbar-item is-text {{ request()->url() == $item['url'] ? 'is-active' : '' }}">
+                    {{ $item['title'] }}
                 </a>
             @endforeach
 

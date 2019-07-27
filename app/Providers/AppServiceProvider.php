@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
+use A17\Twill\Models\Feature;
 use App\Models\DashboardUser;
 use App\Observers\DashboardUserObserver;
+use App\Observers\FeatureObserver;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\ServiceProvider;
@@ -44,6 +46,7 @@ class AppServiceProvider extends ServiceProvider
         $this->setProperLocale();
 
         DashboardUser::observe(DashboardUserObserver::class);
+        Feature::observe(FeatureObserver::class);
     }
 
     private function requireHelpers()
