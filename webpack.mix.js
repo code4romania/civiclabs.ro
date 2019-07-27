@@ -38,3 +38,4 @@ mix.sass('resources/assets/sass/app.scss', 'public/assets')
 
 mix.copyDirectory('resources/assets/favicons', 'public/assets/favicons');
 mix.copyDirectory('resources/assets/images', 'public/assets/images');
+mix.copyDirectory('resources/assets/js/polyfills', 'public/assets/polyfills');
