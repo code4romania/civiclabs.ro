@@ -31,10 +31,11 @@
                 <div class="columns">
                     <ul class="column footer-links">
                         <li class="links-header">{{ __('navigation.links') }}</li>
-                        @foreach (\A17\Twill\Models\Feature::forBucket('footer') as $element)
+
+                        @foreach (getFeaturedMenuItems('footer') as $item)
                             <li class="links-item">
-                                <a href="{{ Localization::getLocalizedURL(null, $element->slug) }}">
-                                    {{ $element->title }}
+
+                                    {{ $item['title'] }}
                                 </a>
                             </li>
                         @endforeach

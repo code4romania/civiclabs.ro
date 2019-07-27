@@ -9,7 +9,7 @@
                     <p class="card-header-title">{{ __('auth.login') }}</p>
                 </div>
 
-                <form class="card-content" method="post" action="{{ route('login') }}">
+                <form class="card-content" method="post" action="{{ route('login') }}"  autocomplete="off">
                     @csrf
 
                     <b-field
