@@ -11,7 +11,7 @@ class VerifyCsrfToken extends Middleware
      *
      * @var bool
      */
-    protected $addHttpCookie = false;
+    protected $addHttpCookie = true;
 
     /**
      * The URIs that should be excluded from CSRF verification.
@@ -21,4 +21,14 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
         //
     ];
+
+    /**
+     * Determine if the cookie should be added to the response.
+     *
+     * @return bool
+     */
+    public function shouldAddXsrfTokenCookie()
+    {
+        return $this->addHttpCookie && (request()->getHost() === config('twill.admin_app_url'));
+    }
 }
