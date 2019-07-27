@@ -35,37 +35,4 @@ class DashboardUserObserver
             $user->notify(new CreatedAccount($user, app('auth.password.broker')->createToken($user)));
         }
     }
-
-    /**
-     * Handle the dashboard user "deleted" event.
-     *
-     * @param  \App\DashboardUser  $dashboardUser
-     * @return void
-     */
-    public function deleted(DashboardUser $dashboardUser)
-    {
-        //
-    }
-
-    /**
-     * Handle the dashboard user "restored" event.
-     *
-     * @param  \App\DashboardUser  $dashboardUser
-     * @return void
-     */
-    public function restored(DashboardUser $dashboardUser)
-    {
-        //
-    }
-
-    /**
-     * Handle the dashboard user "force deleted" event.
-     *
-     * @param  \App\DashboardUser  $dashboardUser
-     * @return void
-     */
-    public function forceDeleted(DashboardUser $dashboardUser)
-    {
-        //
-    }
 }
