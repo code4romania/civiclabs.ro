@@ -53,4 +53,15 @@ class Handler extends ExceptionHandler
     {
         return parent::render($request, $exception);
     }
+
+    protected function handleUnauthenticated($request, AuthenticationException $exception)
+    {
+        if ($request->expectsJson()) {
+            return response()->json(['error' => 'Unauthenticated.'], 401);
+        }
+
+        $redirectTo = $exception->redirectTo() ?? route('admin.login');
+
+        return redirect()->guest($redirectTo);
+    }
 }
