@@ -1,4 +1,7 @@
 @php
+    if (is_null($embed))
+        return;
+
     $closest = $ratio = null;
 
     if (!is_null($embed->aspectRatio)) {
