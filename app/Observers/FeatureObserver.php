@@ -15,7 +15,10 @@ class FeatureObserver
      */
     public function creating(Feature $feature)
     {
-        if (is_null(Relation::getMorphedModel($feature->featured_type))) {
+        $bucketables = collect(config("twill.buckets.navigation.buckets.{$feature->bucket_key}.bucketables"))
+            ->pluck('module');
+
+        if (!$bucketables->contains($feature->featured_type)) {
             return false;
         }
     }
