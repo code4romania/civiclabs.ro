@@ -29,6 +29,6 @@ class VerifyCsrfToken extends Middleware
      */
     public function shouldAddXsrfTokenCookie()
     {
-        return $this->addHttpCookie && (request()->getHost() === config('twill.admin_app_url'));
+        return $this->addHttpCookie && (request()->getHost() === config('twill.admin_app_url')) && auth()->check();
     }
 }

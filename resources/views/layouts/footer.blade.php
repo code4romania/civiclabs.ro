@@ -34,7 +34,7 @@
 
                         @foreach (getFeaturedMenuItems('footer') as $item)
                             <li class="links-item">
-
+                                <a href="{{ $item['url'] }}">
                                     {{ $item['title'] }}
                                 </a>
                             </li>

@@ -35,8 +35,11 @@ function mapTableColumns($options, $name)
 
 function getFeaturedMenuItems($bucketKey)
 {
-    return Feature::where('bucket_key', $bucketKey)->get()->filter(function ($feature) {
-        return !is_null(Relation::getMorphedModel($feature->featured_type));
+    $bucketables = collect(config("twill.buckets.navigation.buckets.${bucketKey}.bucketables"))
+        ->pluck('module');
+
+    return Feature::where('bucket_key', $bucketKey)->get()->filter(function ($feature) use ($bucketables, $bucketKey) {
+        return $bucketables->contains($feature->featured_type);
     })->map(function ($feature) {
         return [
             'title' => $feature->featured->title,
