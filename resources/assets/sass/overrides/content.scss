@@ -151,5 +151,11 @@ dl {
             margin-top: .5rem;
         }
     }
+}
 
+.notices {
+    .notification {
+        pointer-events: all;
+        max-width: 500px;
+    }
 }
