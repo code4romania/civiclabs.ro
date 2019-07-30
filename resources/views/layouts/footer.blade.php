@@ -62,3 +62,5 @@
         </div>
     </div>
 </footer>
+
+@include('site.partials.cookies')

@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Buefy from 'buefy';
 
 import CShare from './components/Share';
+import CCookieConsent from './components/CookieConsent';
 import CApplicationForm from './components/ApplicationForm';
 import CApplicationFormSection from './components/ApplicationFormSection';
 import CEvaluationForm from './components/EvaluationForm';
@@ -15,6 +16,7 @@ Vue.use(Buefy, {
 });
 
 Vue.component('c-share', CShare);
+Vue.component('c-cookie-consent', CCookieConsent);
 Vue.component('c-application-form', CApplicationForm);
 Vue.component('c-application-form-section', CApplicationFormSection);
 Vue.component('c-evaluation-form', CEvaluationForm);
