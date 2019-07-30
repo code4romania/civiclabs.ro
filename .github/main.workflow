@@ -26,6 +26,7 @@ action "build frontend" {
 action "codesniffer" {
     uses = "docker://cytopia/phpcs"
     needs = ["composer install"]
+    args = "--standard=phpcs.xml"
 }
 
 action "twill-install" {
