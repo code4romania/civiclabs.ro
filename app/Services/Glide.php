@@ -88,7 +88,7 @@ class Glide implements ImageServiceInterface
 
     public function getDimensions($id)
     {
-        $url = $this->urlBuilder->createURL($id, ['fm' => 'json']);
+        $url = $this->urlBuilder->getUrl($id, ['fm' => 'json']);
 
         try {
             $imageMetadata = json_decode(file_get_contents($url), true);
