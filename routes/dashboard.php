@@ -26,5 +26,4 @@ Route::group([
 
     Route::get('/submission/{submission}', 'DashboardController@submission')->name('dashboard.submission');
     Route::post('/submission/{submission}/evaluate', 'DashboardController@evaluate')->name('dashboard.evaluate');
-
 });

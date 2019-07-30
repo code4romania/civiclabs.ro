@@ -8,7 +8,7 @@ return [
      *        'App\Models\ModuleName' = [
      *            'name'           => (string)  [required] Module name
      *            'label'          => (string)  [optional] If the name of your module above does not work as a label
-     *            'label_singular' => (string)  [optional] If the automated singular version of your name/label above does not work as a label
+     *            'label_singular' => (string)  [optional] If the automated singular version does not work as a label
      *            'routePrefix'    => (string)  [optional] If the module is living under a specific routes group
      *            'count'          => (boolean) [required] Show total count with link to index of this module
      *            'create'         => (boolean) [required] Show link in create new dropdown
