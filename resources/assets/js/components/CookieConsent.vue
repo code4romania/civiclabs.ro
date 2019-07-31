@@ -1,9 +1,12 @@
 <template>
     <div class="notices is-bottom">
-        <b-notification position="is-bottom-right" :aria-close-label="close" @close="this.closePopup">
+        <b-notification :active.sync="isActive" position="is-bottom-right" :aria-close-label="close" @close="this.closePopup">
             <div class="content">
                 <p class="is-size-7" v-text="message"></p>
-                <a :href="moreUrl" class="button is-small is-link" v-text="moreLabel"></a>
+                <div class="buttons are-small">
+                    <b-button type="is-success" @click="this.closePopup" v-text="agreeLabel" />
+                    <a :href="moreUrl" class="button is-text" v-text="moreLabel" />
+                </div>
             </div>
         </b-notification>
     </div>
@@ -28,6 +31,10 @@
                 type: String,
                 default: '',
             },
+            agreeLabel: {
+                type: String,
+                default: '',
+            },
             close: {
                 type: String,
                 default: '',
@@ -41,9 +48,15 @@
                 default: '',
             },
         },
+        data() {
+            return {
+                isActive: true,
+            };
+        },
         methods: {
             closePopup: function() {
                 axios.post(this.action);
+                this.isActive = false;
             },
         },
     };
