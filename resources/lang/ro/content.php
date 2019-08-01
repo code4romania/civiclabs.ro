@@ -15,6 +15,7 @@ return [
     'newsletterThanksContent' => 'Te rugăm să-ți verifici mailul pentru confirmarea abonării.',
 
     'cookies'                 => 'Pentru a-ți oferi o experiență bună de navigare, utilizăm fișiere de tip cookie. Dacă nu ești de acord cu utilizarea cookie-urilor, poți să îți retragi consimțământul pentru utilizarea cookie-urilor prin modificarea setărilor din browser-ul tău.',
+    'cookiesAgree'            => 'Sunt de acord',
     'cookiesMore'             => 'Mai multe informații',
     'cookiesClose'            => 'Închide notificarea',
 ];
