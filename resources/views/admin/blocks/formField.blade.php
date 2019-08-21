@@ -15,6 +15,11 @@
     'translated'     => true,
 ])
 
+@formField('checkbox', [
+    'name' => 'featured',
+    'label' => 'Featured'
+])
+
 @formField('select', [
     'name'       => 'type',
     'label'      => 'Type',
