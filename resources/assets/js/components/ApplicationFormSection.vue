@@ -41,6 +41,17 @@
                         icon="calendar-today" />
                 </template>
 
+                <template v-else-if="field.type == 'checkbox'">
+                    <b-checkbox
+                        class="is-flex"
+                        size="is-small"
+                        :required="field.required"
+                        :true-value="1"
+                        :false-value="0">
+                        {{ field.checkboxLabel }}
+                    </b-checkbox>
+                </template>
+
                 <template v-else-if="field.type == 'number'">
                     <b-input
                         class="is-block"
@@ -60,7 +71,6 @@
                         :required="field.required"
                         :type="field.type"
                         :maxlength="field.maxLength"
-
                     />
                 </template>
             </b-field>

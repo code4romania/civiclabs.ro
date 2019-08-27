@@ -48,6 +48,10 @@
             'value' => 'file',
             'label' => 'File',
         ],
+        [
+            'value' => 'checkbox',
+            'label' => 'Checkbox',
+        ],
     ],
 ])
 
@@ -158,6 +162,21 @@
         'name'           => 'template',
         'label'          => 'Template file URL',
         'note'           => 'Will be offered for download',
+        'type'           => 'text',
+        'required'       => false,
+        'translated'     => true,
+    ])
+@endcomponent
+
+@component('twill::partials.form.utils._connected_fields', [
+    'fieldName'       => 'type',
+    'fieldValues'     => 'checkbox',
+    'renderForBlocks' => true,
+])
+    @formField('input', [
+        'name'           => 'checkboxLabel',
+        'label'          => 'Checkbox Label',
+        'note'           => 'Will be displayed next to the checkbox',
         'type'           => 'text',
         'required'       => false,
         'translated'     => true,
