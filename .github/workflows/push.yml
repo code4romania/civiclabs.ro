@@ -1,0 +1,32 @@
+on: push
+name: Build on push
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: composer install
+      uses: MilesChou/composer-action@master
+      with:
+        args: install --prefer-dist --no-ansi --no-interaction --no-progress --no-scripts
+    - name: codesniffer
+      uses: docker://cytopia/phpcs
+      with:
+        args: --standard=phpcs.xml
+    - name: twill-install
+      uses: actions/npm@master
+      with:
+        args: run twill-install
+    - name: twill-build
+      uses: actions/npm@master
+      with:
+        args: run twill-build
+    - name: npm install
+      uses: actions/npm@master
+      with:
+        args: install --no-save
+    - name: build frontend
+      uses: actions/npm@master
+      with:
+        args: run production
