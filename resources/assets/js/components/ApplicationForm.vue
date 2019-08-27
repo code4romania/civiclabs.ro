@@ -68,6 +68,18 @@
                         />
                     </template>
 
+                    <template v-else-if="field.type == 'checkbox'">
+                        <b-checkbox
+                            class="is-flex"
+                            size="is-small"
+                            :required="field.required"
+                            v-model="models[sectionIndex][fieldIndex].value"
+                            :true-value="1"
+                            :false-value="0">
+                            {{ field.checkboxLabel }}
+                        </b-checkbox>
+                    </template>
+
                     <template v-else>
                         <b-input
                             class="is-block"

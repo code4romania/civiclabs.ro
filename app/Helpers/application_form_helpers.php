@@ -95,6 +95,11 @@ function getFormFieldParams($field)
             $config['validation'][] = 'url';
             break;
 
+        case 'checkbox':
+            $config['validation'][] = 'boolean';
+            $config['checkboxLabel'] = $field->translatedinput('checkboxLabel');
+            break;
+
         default:
             /**
              * The input component expects this as a number or string.
