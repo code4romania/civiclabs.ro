@@ -23,9 +23,9 @@
     ],
     "devDependencies": {
         "axios": "^0.19.0",
-        "babel-eslint": "^10.0.2",
+        "babel-eslint": "^10.0.3",
         "cross-env": "^5.1",
-        "eslint": "^6.1.0",
+        "eslint": "^6.2.2",
         "eslint-plugin-vue": "^5.2.3",
         "laravel-mix": "^4.1.2",
         "lodash": "^4.17.15",
@@ -33,16 +33,16 @@
         "purify-css": "^1.2.5",
         "purifycss-webpack": "^0.7.0",
         "resolve-url-loader": "^2.3.1",
-        "sass": "^1.22.9",
+        "sass": "^1.22.10",
         "sass-lint": "^1.13.1",
-        "sass-loader": "^7.1.0",
+        "sass-loader": "^7.3.1",
         "svg-spritemap-webpack-plugin": "^3.4.0",
         "vue-eslint-parser": "^6.0.4",
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
-        "@mdi/font": "^3.8.95",
-        "buefy": "^0.7.10",
+        "@mdi/font": "^4.2.95",
+        "buefy": "^0.8.2",
         "bulma": "^0.7.5",
         "vue": "^2.6.10"
     }
