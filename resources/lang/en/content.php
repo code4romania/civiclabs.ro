@@ -8,6 +8,7 @@ return [
     'followme'                => 'Follow me on',
 
     'domains'                 => 'Domains',
+    'blog'                    => 'Blog',
     'materials'               => 'Materials',
 
     'submit'                  => 'Submit',

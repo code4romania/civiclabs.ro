@@ -1,5 +1,5 @@
 @php
-    $author = $item->people()->first() ?? null;
+    $author = $author ?? $item->people()->first() ?? null;
     $permalink = route('blog.show', [ 'post' => $item->slug ]);
 @endphp
 
