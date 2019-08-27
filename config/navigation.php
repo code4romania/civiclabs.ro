@@ -11,10 +11,10 @@ return [
             'id'    => 'solutions',
             'route' => 'solutions.index',
         ],
-        /*[
+        [
             'id'    => 'blog',
             'route' => 'blog.index',
-        ],*/
+        ],
         [
             'id'    => 'login',
             'route' => 'dashboard.home',
