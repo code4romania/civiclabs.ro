@@ -1,8 +1,8 @@
 on: push
 name: Build on push
 jobs:
-  composerInstall:
-    name: composer install
+  build:
+    name: Build
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
