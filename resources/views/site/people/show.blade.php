@@ -94,6 +94,23 @@
             </div>
         @endif
 
+        @if ($item->latestPosts->count())
+            <div class="section">
+                <div class="container">
+                    <h1 class="title">{{ __('content.blog') }}</h1>
+
+                    <div class="columns is-multiline is-centered">
+                        @foreach ($item->latestPosts as $post)
+                            @include('site.posts.loop', [
+                                'item'   => $post,
+                                'author' => false,
+                            ])
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        @endif
+
         <div class="section is-slim">
             <div class="container block">
                 <h1 class="title">{{ __('content.materials') }}</h1>

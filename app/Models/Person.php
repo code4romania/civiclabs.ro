@@ -68,6 +68,16 @@ class Person extends Model implements Sortable
         return $this->morphedByMany(\App\Models\Byproduct::class, 'personable');
     }
 
+    public function posts()
+    {
+        return $this->morphedByMany(\App\Models\Post::class, 'personable');
+    }
+
+    public function latestPosts()
+    {
+        return $this->posts()->orderBy('created_at', 'desc')->take(4);
+    }
+
     public function getTitleInDashboardAttribute()
     {
         return $this->name;
