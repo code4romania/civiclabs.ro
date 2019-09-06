@@ -159,3 +159,22 @@ dl {
         max-width: 500px;
     }
 }
+
+.site-partners {
+
+    &.notification {
+        margin: 0;
+    }
+
+    @include touch {
+        padding: 1.25rem;
+    }
+
+    .columns {
+        justify-content: flex-end;
+    }
+
+    .logo {
+        height: 40px;
+    }
+}

@@ -1,6 +1,6 @@
-<aside class="notification is-white" style="margin:0">
+<aside class="site-partners notification is-white">
     <div class="container is-fluid is-fullwidth-desktop">
-        <div class="columns is-vcentered" style="justify-content: flex-end">
+        <div class="columns is-vcentered">
             <div class="column is-narrow">
                 <div class="media is-vcentered">
                     <div class="media-content">
@@ -21,10 +21,13 @@
                         </p>
                     </div>
                     <a href="https://fundatia-vodafone.ro/" class="media-right is-block" target="_blank">
-                        @svg('partners/vodafone', [ 'class' => 'is-block', 'height' => 40 ])
+                        @svg('partners/vodafone', [ 'class' => 'is-block logo', 'height' => 40 ])
                     </a>
                     <a href="https://www.lidl.ro/" class="media-right is-block" target="_blank">
-                        @svg('partners/lidl', [ 'class' => 'is-block', 'height' => 40 ])
+                        @svg('partners/lidl', [ 'class' => 'is-block logo', 'height' => 40 ])
+                    </a>
+                    <a href="https://www.lidl.ro/" class="media-right is-block" target="_blank">
+                        <img src="{{ asset('assets/images/partners/lidl-csr.png') }}" class="is-block logo" alt="">
                     </a>
                 </div>
             </div>
