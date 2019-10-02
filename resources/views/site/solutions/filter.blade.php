@@ -17,7 +17,9 @@
 
                 <optgroup label="{{ __('solution.domain') }}">
                     @foreach ($domains as $domain)
-                        <option {{ !$domain->solutions->count() ? 'disabled' : '' }} value="domain.{{ $domain->slug }}">
+                        @continue(!$domain->solutions->count())
+
+                        <option value="domain.{{ $domain->slug }}">
                             {{ $domain->title }}
                         </option>
                     @endforeach
