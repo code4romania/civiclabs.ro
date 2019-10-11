@@ -109,7 +109,7 @@ return [
     'options' => [
         'application'         => env('APP_NAME', 'Laravel'),
         'repository'          => env('DEPLOY_REPOSITORY'),
-        'php_fpm_service'     => 'php7.2-fpm',
+        'php_fpm_service'     => 'php7.3-fpm',
         'writable_use_sudo'   => true,
         'writable_chmod_mode' => '0775',
     ],

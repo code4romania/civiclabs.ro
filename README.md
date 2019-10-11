@@ -1,4 +1,4 @@
-# Civic Labs 
+# Civic Labs
 
 [![GitHub contributors](https://img.shields.io/github/contributors/code4romania/civiclabs.ro.svg?style=for-the-badge)](https://github.com/code4romania/civiclabs.ro/graphs/contributors) [![GitHub last commit](https://img.shields.io/github/last-commit/code4romania/civiclabs.ro.svg?style=for-the-badge)](https://github.com/code4romania/civiclabs.ro/commits/master) [![License: MPL 2.0](https://img.shields.io/badge/license-MPL%202.0-brightgreen.svg?style=for-the-badge)](https://opensource.org/licenses/MPL-2.0)
 
@@ -6,9 +6,9 @@ Insert bullets description of the project if available.
 
 [See the project live](https://civiclabs.ro)
 
-Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project.
 
-[Contributing](#contributing) | [Built with](#built-with) | [Repos and projects](#repos-and-projects) | [Deployment](#deployment) | [Feedback](#feedback) | [License](#license) | [About Code4Ro](#about-code4ro)
+[Contributing](#contributing) | [Built with](#built-with) | [Getting started](#getting-started) | [Deployment](#deployment) | [Feedback](#feedback) | [License](#license) | [About Code4Ro](#about-code4ro)
 
 ## Contributing
 
@@ -16,31 +16,68 @@ This project is built by amazing volunteers and you can be one of them! Here's a
 
 You can also list any pending features and planned improvements for the project here.
 
-## Built With
+## Built with
 
-### Programming languages
+* Laravel 5.8
+* [Twill](https://twill.io)
 
-### Platforms
 
-### Frontend framework
+### Requirements
 
-### Package managers
+* PHP 7.3+
+* Apache or Nginx
+* MySQL
 
-### Database technology & provider
+## Getting started
 
-## Repos and projects
+### 1. Install dependencies
+```
+composer install
+npm install
+npm run twill-install
+```
 
-Mention all related repos and projects.
+### 2. Build frontend
+```
+npm run prod
+npm run twill-build
+```
+
+### 3. Configure
+Copy `.env.example` to `.env` and update the configuration.
+
+#### Subdomain-based routing
+```
+APP_URL=domain.test
+
+ADMIN_APP_URL=admin.domain.test
+ADMIN_APP_PATH=
+
+DASHBOARD_URL=dashboard.domain.test
+DASHBOARD_PATH=
+```
+
+#### Path-based routing
+
+```
+APP_URL=domain.test
+
+ADMIN_APP_URL=domain.test
+ADMIN_APP_PATH=admin
+
+DASHBOARD_URL=domain.test
+DASHBOARD_PATH=dashboard
+```
+
+### 4. Migrate and create admin account
+```
+php artisan migrate
+php artisan twill:superadmin
+```
 
 ## Deployment
 
-Guide users through getting your code up and running on their own system. In this section you can talk about:
-1. Installation process
-2. Software dependencies
-3. Latest releases
-4. API references
-
-Describe and show how to build your code and run the tests. 
+Deploying to a remote host is done through `php artisan deploy <stage>`, using [lorisleiva/laravel-deployer](https://github.com/lorisleiva/laravel-deployer), which can be configured in [config/deploy.php](config/deploy.php).
 
 ## Feedback
 
@@ -49,7 +86,7 @@ Describe and show how to build your code and run the tests.
 * File a bug in GitHub Issues.
 * Email us with other feedback contact@code4.ro
 
-## License 
+## License
 
 This project is licensed under the MPL 2.0 License - see the [LICENSE](LICENSE) file for details
 
