@@ -44,9 +44,12 @@ npm run twill-build
 ```
 
 ### 3. Configure
-Copy `.env.example` to `.env` and update the configuration.
+```
+cp .env.example .env
+php artisan key:generate
+```
 
-#### Subdomain-based routing
+#### 3.A. Subdomain-based routing
 ```
 APP_URL=domain.test
 
@@ -57,8 +60,7 @@ DASHBOARD_URL=dashboard.domain.test
 DASHBOARD_PATH=
 ```
 
-#### Path-based routing
-
+#### 3.B. Path-based routing
 ```
 APP_URL=domain.test
 
