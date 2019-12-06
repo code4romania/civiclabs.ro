@@ -26,11 +26,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
     - name: npm install
-      uses: actions/npm@master
-      with:
-        args: install --no-save
+      run: npm install --no-save
     - name: build frontend
-      uses: actions/npm@master
-      with:
-        args: run production
+      run: npm run production
