@@ -13,14 +13,13 @@ jobs:
       uses: docker://cytopia/phpcs
       with:
         args: --standard=phpcs.xml
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
     - name: twill-install
-      uses: actions/npm@master
-      with:
-        args: run twill-install
+      run: npm run twill-install
     - name: twill-build
-      uses: actions/npm@master
-      with:
-        args: run twill-build
+      run: npm run twill-build
 
   frontend:
     runs-on: ubuntu-latest
