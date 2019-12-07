@@ -6,31 +6,31 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: composer install
-      uses: MilesChou/composer-action@master
+      uses: docker://mileschou/composer
       with:
         args: install --prefer-dist --no-ansi --no-interaction --no-progress --no-scripts
+    - name: Fix vendor permissions
+      run: sudo chown -R runner:docker vendor/
     - name: codesniffer
       uses: docker://cytopia/phpcs
       with:
         args: --standard=phpcs.xml
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
     - name: twill-install
-      uses: actions/npm@master
-      with:
-        args: run twill-install
+      run: npm run twill-install
     - name: twill-build
-      uses: actions/npm@master
-      with:
-        args: run twill-build
+      run: npm run twill-build
 
   frontend:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
     - name: npm install
-      uses: actions/npm@master
-      with:
-        args: install --no-save
+      run: npm install --no-save
     - name: build frontend
-      uses: actions/npm@master
-      with:
-        args: run production
+      run: npm run production
