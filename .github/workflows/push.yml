@@ -6,9 +6,11 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: composer install
-      uses: MilesChou/composer-action@master
+      uses: docker://mileschou/composer
       with:
         args: install --prefer-dist --no-ansi --no-interaction --no-progress --no-scripts
+    - name: Fix vendor permissions
+      run: sudo chown -R runner:docker vendor/
     - name: codesniffer
       uses: docker://cytopia/phpcs
       with:
