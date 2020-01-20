@@ -12,6 +12,8 @@
 
                 <div class="columns is-multiline">
                     @foreach ($items as $item)
+                        @continue($item->domains->isEmpty())
+
                         @include('site.solutions.loop')
                     @endforeach
                 </div>
