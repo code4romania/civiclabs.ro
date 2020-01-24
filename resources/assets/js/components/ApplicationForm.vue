@@ -220,15 +220,15 @@
                         message: '',
                     };
 
-                    if (error.response.data && error.response.data.errors) {
+                    if (error.response.data) {
                         this.clearValidationErrors();
-                        this.processValidationErrors(error.response.data.errors);
+                        this.processValidationErrors(error.response.data);
                         toast.message = this.$props.messages.invalid;
                     } else {
-                        toast.message = this.$props.messages.unknown;
+                        toast.message = this.$props.messages.error;
                     }
 
-                    this.$toast.open(toast);
+                    this.$buefy.toast.open(toast);
                 });
             },
             clearValidationErrors() {
