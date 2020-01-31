@@ -11,10 +11,9 @@ return [
     'filterBy'                   => 'Filtrează după',
     'showAll'                    => 'Arată toate soluțiile',
 
-    'status.evaluation'          => 'Jurizare',
-    'status.implementation'      => 'Implementare',
-    'status.opencall'            => 'Call deschis de finanțare',
-    'status.adopt'               => 'Adoptă acest proiect',
+    'status.available'           => 'Neadoptat',
+    'status.adopted'             => 'Adoptat',
+    'status.live'                => 'Proiect live',
 
     'tab.prototype'              => 'Interacționează cu prototipul',
     'tab.video'                  => 'Vezi video demo',

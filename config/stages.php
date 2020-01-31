@@ -13,10 +13,9 @@ return [
     ],
 
     'solutions' => [
-        'evaluation',
-        'implementation',
-        'opencall',
-        'adopt',
+        'available',
+        'adopted',
+        'live',
     ],
 
 ];

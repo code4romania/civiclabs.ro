@@ -11,10 +11,9 @@ return [
     'filterBy'                   => 'Filter by',
     'showAll'                    => 'Show all solutions',
 
-    'status.evaluation'          => 'Evaluation',
-    'status.implementation'      => 'Implementation',
-    'status.opencall'            => 'Open call',
-    'status.adopt'               => 'Adopt this project',
+    'status.available'           => 'Available',
+    'status.adopted'             => 'Adopted',
+    'status.live'                => 'Live project',
 
     'tab.prototype'              => 'Interact with the prototype',
     'tab.video'                  => 'View demo video',
