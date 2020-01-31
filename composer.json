@@ -3,8 +3,8 @@
     "type": "project",
     "license": "MPL-2.0",
     "require": {
-        "php": "^7.3.0",
-        "area17/twill": "1.2.*",
+        "php": "^7.3",
+        "area17/twill": "1.2.x-dev",
         "artesaos/seotools": "^0.15.0",
         "embed/embed": "^3.3",
         "fideloper/proxy": "^4.0",
