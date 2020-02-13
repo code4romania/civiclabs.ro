@@ -1,4 +1,5 @@
-@extends('layouts.app')
+
+@extends('layouts.' . (($item->layout) ? ($item->layout) : ('app')))
 
 @section('content')
     <article>

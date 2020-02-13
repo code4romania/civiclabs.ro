@@ -5,7 +5,7 @@
                 <div class="media is-vcentered">
                     <div class="media-content">
                         <p class="is-size-7">
-                            {{ __('footer.projectby') }}
+                            {{ __('header-stripe.projectby') }}
                         </p>
                     </div>
                     <a href="https://code4.ro" class="media-right is-block" target="_blank">
@@ -17,7 +17,7 @@
                 <div class="media is-vcentered">
                     <div class="media-content">
                         <p class="is-size-7">
-                            {{ __('footer.support') }}
+                            {{ __('header-stripe.support') }}
                         </p>
                     </div>
                     <a href="https://fundatia-vodafone.ro/" class="media-right is-block" target="_blank">
