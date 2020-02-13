@@ -5,7 +5,7 @@
               <div class="media is-vcentered">
                   <div class="media-content">
                       <p class="is-size-7">
-                          {{ __('header-stripe.projectby') }}
+                          {{ __('header-stripe.project-type') }}
                       </p>
                   </div>
               </div>
