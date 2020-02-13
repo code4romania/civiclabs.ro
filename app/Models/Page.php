@@ -26,6 +26,7 @@ class Page extends Model implements Sortable
         // 'featured',
         'publish_start_date',
         'publish_end_date',
+        'layout',
     ];
 
     // uncomment and modify this as needed if you use the HasTranslation trait

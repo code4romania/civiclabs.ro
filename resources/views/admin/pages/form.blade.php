@@ -9,6 +9,19 @@
 ])
 
 @section('contentFields')
+    @formField('select', [
+      'name'        => 'layout',
+      'label'       => 'Layout',
+      'required'    => true,
+      // 'options'    => collect(config('layouts.pages')),
+      'options'    => collect(config('layouts.pages'))->map(function ($layout) {
+          return [
+              'value' => $layout,
+              'label' => __("layouts.$layout"),
+          ];
+      })->toArray(),
+    ])
+
     @formField('wysiwyg', [
         'name'           => 'description',
         'label'          => 'Description',
