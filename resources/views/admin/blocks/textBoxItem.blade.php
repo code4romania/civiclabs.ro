@@ -11,3 +11,19 @@
     'translated'     => true,
     'editSource'     => true,
 ])
+
+@formField('input', [
+    'name'       => 'button_text',
+    'type'       => 'text',
+    'label'      => 'Button text',
+    'translated' => true,
+    'maxlength'  => 100,
+])
+
+@formField('input', [
+    'name'       => 'button_url',
+    'type'       => 'text',
+    'label'      => 'Button link',
+    'translated' => true,
+    'maxlength'  => 100,
+])
