@@ -8,15 +8,6 @@
                           {{ __('header-stripe.project-type') }}
                       </p>
                   </div>
-              </div>
-          </div>
-          <div class="column is-narrow">
-              <div class="media is-vcentered">
-                  <div class="media-content">
-                      <p class="is-size-7">
-                          {{ __('header-stripe.initiator') }}
-                      </p>
-                  </div>
                   <a href="https://fundatiacomunitarabucuresti.ro/" class="media-right is-block" target="_blank">
                       <img src="{{ asset('assets/images/partners/fundatia-comunitara-bucuresti.png') }}" class="is-block logo" alt="">
                   </a>
