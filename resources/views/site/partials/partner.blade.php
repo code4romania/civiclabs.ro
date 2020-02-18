@@ -1,5 +1,5 @@
 @php
-    $width = $width ?? 150;
+    $height = $height ?? 40;
     $class = $class ?? '';
 @endphp
 
@@ -9,14 +9,10 @@
             <a href="{{ $partner->website }}" target="_blank" rel="noopener">
         @endif
 
-        <img src="{{ $partner->image('logo', 'default', [
-            'w'   => $width,
-            'fm'  => 'png',
-        ]) }}" alt="">
+        <img src="{{ $partner->image('logo', 'default', ['h' => $height, 'fm' => 'png']) }}" alt="{{ $partner->title }}">
 
         @if ($partner->website)
             </a>
         @endif
     </div>
 @endif
-

@@ -33,4 +33,10 @@ return [
     'event.submit.success'       => 'Your application was successfully sent!',
     'event.submit.invalid'       => 'The form could not be validated. Please fix the errors above and try again!',
     'event.submit.error'         => 'Something went wrong. Please try again later!',
+
+    'financer.exists'            => 'Financed by:',
+    'financer.missing'           => 'Do you want to fund this project?',
+
+    'ngo.applicants'             => 'Interested NGOs:',
+    'ngo.implementers'           => 'Implemented by:',
 ];

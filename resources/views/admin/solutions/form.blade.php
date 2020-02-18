@@ -64,9 +64,17 @@
     @formField('browser', [
         'routePrefix' => '',
         'moduleName'  => 'partners',
-        'name'        => 'implementers',
-        'label'       => 'Implemented by',
+        'name'        => 'applicants',
+        'label'       => 'Interested NGOs',
         'max'         => 100,
+    ])
+
+    @formField('browser', [
+        'routePrefix' => '',
+        'moduleName'  => 'partners',
+        'name'        => 'implementers',
+        'label'       => 'Winner NGO',
+        'max'         => 1,
     ])
 @stop
 

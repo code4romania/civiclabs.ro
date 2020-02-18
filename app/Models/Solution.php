@@ -82,6 +82,11 @@ class Solution extends Model implements Sortable
         return $this->morphToMany(Partner::class, 'developable');
     }
 
+    public function applicants()
+    {
+        return $this->morphToMany(Partner::class, 'applicantable');
+    }
+
     public function implementers()
     {
         return $this->morphToMany(Partner::class, 'implementable');
