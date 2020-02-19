@@ -9,7 +9,10 @@
             <a href="{{ $partner->website }}" target="_blank" rel="noopener">
         @endif
 
-        <img src="{{ $partner->image('logo', 'default', ['h' => $height, 'fm' => 'png']) }}" alt="{{ $partner->title }}">
+        <img src="{{ $partner->image('logo', 'default', [
+                'h' => $height,
+                'fm' => 'png'
+        ]) }}" alt="{{ $partner->title }}">
 
         @if ($partner->website)
             </a>

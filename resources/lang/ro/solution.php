@@ -37,6 +37,6 @@ return [
     'financer.exists'            => 'Finanțat de:',
     'financer.missing'           => 'Vrei să finanțezi acest proiect?',
 
-    'ngo.applicants'             => 'Ong-uri interesate:',
+    'ngo.applicants'             => 'ONG-uri interesate:',
     'ngo.implementers'           => 'Implementat de:',
 ];
