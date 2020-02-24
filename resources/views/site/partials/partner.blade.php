@@ -1,5 +1,5 @@
 @php
-    $width = $width ?? 150;
+    $height = $height ?? 40;
     $class = $class ?? '';
 @endphp
 
@@ -10,13 +10,12 @@
         @endif
 
         <img src="{{ $partner->image('logo', 'default', [
-            'w'   => $width,
-            'fm'  => 'png',
-        ]) }}" alt="">
+                'h' => $height,
+                'fm' => 'png'
+        ]) }}" alt="{{ $partner->title }}">
 
         @if ($partner->website)
             </a>
         @endif
     </div>
 @endif
-

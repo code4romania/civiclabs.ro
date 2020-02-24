@@ -53,17 +53,9 @@
                         </ul>
                     @endif
                 </header>
-                <div class="column is-5-tablet">
-                    <div class="box">
-                        @foreach (['financers', 'implementers', 'developers'] as $partner_type)
-                            @include('site.solutions.partner-box', [
-                                'label'    => __("solution.by.{$partner_type}"),
-                                'partners' => $item->$partner_type,
-                            ])
-                        @endforeach
-                    </div>
-                </div>
             </div>
         </div>
     </div>
 </div>
+
+@include('site.solutions.partner-stripe')

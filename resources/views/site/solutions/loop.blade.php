@@ -59,7 +59,7 @@
                     </dd>
                 @endif
 
-                @foreach (['financers', 'implementers', 'developers'] as $partner_type)
+                @foreach (['financers', 'applicants', 'implementers', 'developers'] as $partner_type)
                     @continue(!$item->$partner_type->count())
 
                     <dt>{{ __("solution.by.{$partner_type}") }}</dt>

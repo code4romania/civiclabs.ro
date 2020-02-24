@@ -41,6 +41,7 @@ class SolutionRepository extends ModuleRepository
     {
         $this->updateBrowser($object, $fields, 'financers');
         $this->updateBrowser($object, $fields, 'developers');
+        $this->updateBrowser($object, $fields, 'applicants');
         $this->updateBrowser($object, $fields, 'implementers');
         $this->updateBrowser($object, $fields, 'domains');
         $this->updateBrowser($object, $fields, 'applicationForms');
@@ -68,6 +69,14 @@ class SolutionRepository extends ModuleRepository
         $fields['browsers']['developers'] = $this->getFormFieldsForBrowser(
             $object,
             'developers',
+            null,
+            'title',
+            'partners'
+        );
+
+        $fields['browsers']['applicants'] = $this->getFormFieldsForBrowser(
+            $object,
+            'applicants',
             null,
             'title',
             'partners'
