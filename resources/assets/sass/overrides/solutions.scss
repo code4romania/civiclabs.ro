@@ -16,11 +16,11 @@
     overflow-y: hidden;
 }
 
-.horizontal-scroll::-webkit-scrollbar {
-  display: none; /* Hide scrollbar for Chrome, Safari and Opera */
-}
+// .horizontal-scroll::-webkit-scrollbar {
+//   display: none; /* Hide scrollbar for Chrome, Safari and Opera */
+// }
 
-.horizontal-scroll {
-  -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
-  scrollbar-width: none; /* Firefox */
-}
+// .horizontal-scroll {
+//   -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
+//   scrollbar-width: none; /* Firefox */
+// }

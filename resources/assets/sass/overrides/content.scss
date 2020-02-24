@@ -182,15 +182,15 @@ dl {
 
 .solution-partners {
 
-  &.notification {
-      margin: 0;
-  }
+    &.notification {
+        margin: 0;
+    }
 
-  @include touch {
-      padding: 1.25rem;
-  }
+    @include touch {
+        padding: 1.25rem;
+    }
 
-  .logo {
-      height: 40px;
-  }
+    .logo {
+        height: 40px;
+    }
 }
