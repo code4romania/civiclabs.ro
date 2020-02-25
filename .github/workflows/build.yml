@@ -31,8 +31,8 @@ jobs:
         key: dependencies-npm-${{ hashFiles('package-lock.json') }}
 
     # Install dependencies
-    - name: Install dependencies
-      run: composer update --prefer-stable --prefer-dist --no-interaction --no-suggest
+    - name: composer update
+      run: composer update --prefer-stable --prefer-dist --no-interaction --no-suggest --no-progress --no-scripts
     - name: twill-install
       run: npm run twill-install
     - name: npm install
