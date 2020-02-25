@@ -1,36 +1,49 @@
 on: [push, pull_request]
 name: Build
 jobs:
-  backend:
+  build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
-    - name: composer install
-      uses: docker://mileschou/composer
+    - uses: actions/checkout@v2
+
+    # Setup environment
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
       with:
-        args: install --prefer-dist --no-ansi --no-interaction --no-progress --no-scripts
-    - name: Fix vendor permissions
-      run: sudo chown -R runner:docker vendor/
-    - name: codesniffer
-      uses: docker://cytopia/phpcs
-      with:
-        args: --standard=phpcs.xml
+        php-version: 7.3
+        extensions: mbstring, sqlite, pdo_sqlite
+        tools: composer, phpcs
+        coverage: none
     - uses: actions/setup-node@v1
       with:
         node-version: '10.x'
+
+    # Setup caching
+    - name: Cache composer dependencies
+      uses: actions/cache@v1
+      with:
+        path: ~/.composer/cache/files
+        key: dependencies-composer-${{ hashFiles('composer.lock') }}
+    - name: Cache npm dependencies
+      uses: actions/cache@v1
+      with:
+        path: ~/.npm
+        key: dependencies-npm-${{ hashFiles('package-lock.json') }}
+
+    # Install dependencies
+    - name: Install dependencies
+      run: composer update --prefer-stable --prefer-dist --no-interaction --no-suggest
     - name: twill-install
       run: npm run twill-install
-    - name: twill-build
-      run: npm run twill-build
-
-  frontend:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@master
-    - uses: actions/setup-node@v1
-      with:
-        node-version: '10.x'
     - name: npm install
       run: npm install --no-save
+
+    # Coding standard
+    - name: phpcs
+      run: phpcs --standard=phpcs.xml
+
+    # Build
+    - name: twill-build
+      run: npm run twill-build
     - name: build frontend
       run: npm run production
