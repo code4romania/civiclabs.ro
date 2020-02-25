@@ -2,11 +2,15 @@
     if (is_null($embed))
         return;
 
-    $closest = $ratio = null;
+    $search = $closest = $ratio = null;
 
     if (!is_null($embed->aspectRatio)) {
         $search = $embed->aspectRatio;
+    } elseif (!is_null($embed->imageWidth) && !is_null($embed->imageHeight)) {
+        $search = round(($embed->imageHeight / $embed->imageWidth) * 100, 3);
+    }
 
+    if (!is_null($search)) {
         foreach (config('embeds.ratios') as $id => $item) {
             // Normalize calculated ratio
             $item *= 100;
