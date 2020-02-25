@@ -82,6 +82,11 @@
             </div>
         </div>
 
+        <div class="section">
+            <div class="container">
+                {!! $item->renderBlocks(false) !!}
+            </div>
+        </div>
 
         @include('site.solutions.modal')
     </article>
