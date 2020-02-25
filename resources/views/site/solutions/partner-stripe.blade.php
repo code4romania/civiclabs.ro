@@ -3,7 +3,7 @@
 @endphp
 
 <aside class="solution-partners notification">
-    <div class="container is-fluid px0">
+    <div class="container">
         <div class="columns is-vcentered">
             <div class="column is-one-quarter is-narrow">
                 <div class="media is-vcentered">
