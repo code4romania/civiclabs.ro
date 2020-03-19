@@ -36,7 +36,9 @@
                             slidesPerView: 4,
                             navigation: {
                                 nextEl: '.swiper-button-next',
-                                prevEl: '.swiper-button-prev'
+                                prevEl: '.swiper-button-prev',
+                                disabledClass: 'is-hidden',
+                                hiddenClass: 'is-hidden'
                             },
                             autoplay: {
                                 delay: 2000,

@@ -1,11 +1,13 @@
 <template>
-    <swiper class="swiper" :options="options">
-        <swiper-slide v-for="partner in partners" :key="partner.title" class="ql-align-center">
-            <img :src="partner.image" :alt="partner.title">
-        </swiper-slide>
-        <div class="swiper-button-prev" slot="button-prev"></div>
-        <div class="swiper-button-next" slot="button-next"></div>
-    </swiper>
+    <div class="column is-full">
+        <swiper class="swiper is-fullwidth" :options="options">
+            <swiper-slide v-for="partner in partners" :key="partner.title" class="ql-align-center">
+                <img :src="partner.image" :alt="partner.title" class="is-block logo">
+            </swiper-slide>
+            <div class="swiper-button-prev" slot="button-prev"></div>
+            <div class="swiper-button-next" slot="button-next"></div>
+        </swiper>
+    </div>
 </template>
 
 <script>
