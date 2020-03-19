@@ -29,11 +29,35 @@
 
                     <p class="is-size-7">{{ __('solution.ngo.' . $ngoType) }}</p>
 
-                    <div class="horizontal-scroll">
-                        @foreach ($item->$ngoType as $ngo)
-                            @include('site.partials.partner', ['height' => 40, 'partner' => $ngo, 'class' => 'media-right is-narrow'])
-                        @endforeach
-                    </div>
+                    <c-partners-stripe
+                        :partners="{{ json_encode($patnersNGO) }}"
+                        :options="{
+                            centeredSlides: false,
+                            slidesPerView: 4,
+                            navigation: {
+                                nextEl: '.swiper-button-next',
+                                prevEl: '.swiper-button-prev'
+                            },
+                            autoplay: {
+                                delay: 2000,
+                                disableOnInteraction: false
+                            },
+                            breakpoints: {
+                                1024: {
+                                    slidesPerView: 4
+                                },
+                                768: {
+                                    slidesPerView: 3
+                                },
+                                640: {
+                                    slidesPerView: 2
+                                },
+                                320: {
+                                    slidesPerView: 1
+                                }
+                            }
+                        }"
+                    ></c-partners-stripe>
 
                 </div>
             </div>
