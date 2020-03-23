@@ -51,9 +51,20 @@ class SolutionController extends Controller
             ]),
         ]);
 
+        $ngos = (!$item->implementers->count()) ? ($item->applicants) : ($item->implementers);
+
         return view('site.solutions.show', [
             'item'          => $item,
             'alternateUrls' => $this->getAlternateLocaleUrls('solutions.show', $item),
+            'ngos'          => $ngos->map(function ($ngo) {
+                return [
+                    'title' => $ngo->title,
+                    'image' => $ngo->image('logo', 'default', [
+                        'h' => 40,
+                        'fm' => 'png',
+                    ]),
+                ];
+            }),
         ]);
     }
 
