@@ -31,34 +31,6 @@
 
                     <c-partners-stripe
                         :partners="{{ json_encode($ngos) }}"
-                        :options="{
-                            centeredSlides: false,
-                            slidesPerView: 4,
-                            navigation: {
-                                nextEl: '.swiper-button-next',
-                                prevEl: '.swiper-button-prev',
-                                disabledClass: 'is-hidden',
-                                hiddenClass: 'is-hidden'
-                            },
-                            autoplay: {
-                                delay: 2000,
-                                disableOnInteraction: false
-                            },
-                            breakpoints: {
-                                1024: {
-                                    slidesPerView: 4
-                                },
-                                768: {
-                                    slidesPerView: 3
-                                },
-                                640: {
-                                    slidesPerView: 2
-                                },
-                                320: {
-                                    slidesPerView: 1
-                                }
-                            }
-                        }"
                     ></c-partners-stripe>
 
                 </div>

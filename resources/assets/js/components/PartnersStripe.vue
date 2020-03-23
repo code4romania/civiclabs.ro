@@ -24,17 +24,39 @@
         props: {
             partners: {
                 type: Array,
-                default: () => []
+                default: () => [],
             },
             options: {
                 type: Object,
-                default: () => {}
+                default: () => ({
+                    centeredSlides: false,
+                    slidesPerView: 4,
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                        disabledClass: 'is-hidden',
+                        hiddenClass: 'is-hidden'
+                    },
+                    autoplay: {
+                        delay: 2000,
+                        disableOnInteraction: false
+                    },
+                    breakpoints: {
+                        1024: {
+                            slidesPerView: 4
+                        },
+                        768: {
+                            slidesPerView: 3
+                        },
+                        640: {
+                            slidesPerView: 2
+                        },
+                        320: {
+                            slidesPerView: 1
+                        },
+                    },
+                }),
             }
         },
-
-        data: function () {
-            return {
-            }
-        }
     }
 </script>
