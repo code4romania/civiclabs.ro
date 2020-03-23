@@ -21,7 +21,6 @@ Vue.component('c-cookie-consent', CCookieConsent);
 Vue.component('c-application-form', CApplicationForm);
 Vue.component('c-application-form-section', CApplicationFormSection);
 Vue.component('c-evaluation-form', CEvaluationForm);
-Vue.component('c-evaluation-form', CEvaluationForm);
 Vue.component('c-partners-stripe', CPartnersStripe);
 
 new Vue({
