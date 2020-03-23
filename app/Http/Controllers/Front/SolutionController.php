@@ -51,24 +51,20 @@ class SolutionController extends Controller
             ]),
         ]);
 
-        /** Create partner NGOs array. */
-        $patnersNGO = array();
         $ngos = (!$item->implementers->count()) ? ($item->applicants) : ($item->implementers);
-
-        foreach ($ngos as $ngo) {
-            $patnersNGO[] = [
-                'title' => $ngo->title,
-                'image' => $ngo->image('logo', 'default', [
-                    'h' => 40,
-                    'fm' => 'png',
-                ]),
-            ];
-        }
 
         return view('site.solutions.show', [
             'item'          => $item,
             'alternateUrls' => $this->getAlternateLocaleUrls('solutions.show', $item),
-            'patnersNGO'    => $patnersNGO,
+            'ngos'          => $ngos->map(function ($ngo) {
+                return [
+                    'title' => $ngo->title,
+                    'image' => $ngo->image('logo', 'default', [
+                        'h' => 40,
+                        'fm' => 'png',
+                    ]),
+                ];
+            }),
         ]);
     }
 

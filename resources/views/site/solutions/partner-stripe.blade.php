@@ -30,7 +30,7 @@
                     <p class="is-size-7">{{ __('solution.ngo.' . $ngoType) }}</p>
 
                     <c-partners-stripe
-                        :partners="{{ json_encode($patnersNGO) }}"
+                        :partners="{{ json_encode($ngos) }}"
                         :options="{
                             centeredSlides: false,
                             slidesPerView: 4,
