@@ -13,6 +13,7 @@ return [
     'user_roles' => [
         'financer'  => 'Financer',
         'evaluator' => 'Evaluator',
+        'applicant' => 'Applicant',
     ],
-    'show_solutions_with_status' => ['evaluation', 'opencall'],
+    'show_solutions_with_status' => ['available'],
 ];
