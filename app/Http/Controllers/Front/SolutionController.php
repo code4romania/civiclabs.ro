@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
 use App\Models\ApplicationSubmission;
 use App\Models\Solution;
+use App\Models\DashboardUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -101,6 +102,11 @@ class SolutionController extends Controller
         $attributes = $request->validate($validationRules);
         $uuid = (string) Str::uuid();
 
+
+        /** Fields for extracting the name and email of the parson who submits the form. */
+        $email = NULL;
+        $name = NULL;
+
         /**
          * Upload files if available
          */
@@ -124,14 +130,44 @@ class SolutionController extends Controller
 
                     $attributes['data'][$sectionIndex][$fieldIndex]['value'] = $fileName;
                 }
+
+                /** Search for the name */
+                if ((false !== strpos(strtolower($field['label']), 'nume')) && (false !== strpos(strtolower($field['label']), 'prenume'))) {
+                    $name = $field['value'];
+                }
+
+                /** Search for the email */
+                if ((false !== strpos(strtolower($field['label']), 'e-mail')) || (false !== strpos(strtolower($field['label']), 'email'))) {
+                    $email = $field['value'];
+                }
             }
         }
 
+        /** Extract user or create a new one. */
+        $user = NULL;
+        if ($email) {
+            $user = DashboardUser::whereEmail($email)->first();
+
+            if (NULL === $user) {
+                $user = new DashboardUser();
+
+                $user->fill([
+                    'email'     => $email,
+                    'name'      => $name,
+                    'user_role' => 'applicant',
+                ]);
+
+                $user->save();
+            }
+        }
+
+        /** Save application submission. */
         $submission = new ApplicationSubmission();
         $submission->fill([
             'uuid'  => $uuid,
             'title' => $attributes['data'][0][0]['value'],
             'data'  => $attributes['data'],
+            'dashboard_user_id' => ($user) ? ($user->id) : (NULL),
         ]);
 
         $submission->form()->associate($item->applicationForms->first());
