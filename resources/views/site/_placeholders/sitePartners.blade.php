@@ -20,8 +20,8 @@
                             {{ __('header-stripe.support') }}
                         </p>
                     </div>
-                    <a href="https://fundatia-vodafone.ro/" class="media-right is-block" target="_blank">
-                        @svg('partners/vodafone', [ 'class' => 'is-block logo', 'height' => 40 ])
+                    <a href="https://ing.ro/" class="media-right is-block" target="_blank">
+                        @svg('partners/ing', [ 'class' => 'is-block logo', 'height' => 40 ])
                     </a>
                     <a href="https://www.lidl.ro/" class="media-right is-block" target="_blank">
                         @svg('partners/lidl', [ 'class' => 'is-block logo', 'height' => 40 ])
