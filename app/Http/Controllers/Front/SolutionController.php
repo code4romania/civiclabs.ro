@@ -158,6 +158,7 @@ class SolutionController extends Controller
                     'email'     => $email,
                     'name'      => $name,
                     'user_role' => 'applicant',
+                    'published' => 1,
                 ]);
 
                 $user->save();
