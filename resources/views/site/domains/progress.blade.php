@@ -1,4 +1,4 @@
-@if ((0 !== $research_percentage) || (0 !== $prototyping_percentage))
+@if ($research_percentage || $prototyping_percentage)
     <aside class="section has-background-white-bis">
         <div class="container">
             <div class="columns">
