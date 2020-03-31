@@ -104,8 +104,8 @@ class SolutionController extends Controller
 
 
         /** Fields for extracting the name and email of the parson who submits the form. */
-        $email = NULL;
-        $name = NULL;
+        $email = null;
+        $name = null;
 
         /**
          * Upload files if available
@@ -132,23 +132,29 @@ class SolutionController extends Controller
                 }
 
                 /** Search for the name */
-                if ((false !== strpos(strtolower($field['label']), 'nume')) && (false !== strpos(strtolower($field['label']), 'prenume'))) {
+                if (
+                    (false !== strpos(strtolower($field['label']), 'nume')) &&
+                    (false !== strpos(strtolower($field['label']), 'prenume'))
+                ) {
                     $name = $field['value'];
                 }
 
                 /** Search for the email */
-                if ((false !== strpos(strtolower($field['label']), 'e-mail')) || (false !== strpos(strtolower($field['label']), 'email'))) {
+                if (
+                    (false !== strpos(strtolower($field['label']), 'e-mail')) ||
+                    (false !== strpos(strtolower($field['label']), 'email'))
+                ) {
                     $email = $field['value'];
                 }
             }
         }
 
         /** Extract user or create a new one. */
-        $user = NULL;
+        $user = null;
         if ($email) {
             $user = DashboardUser::whereEmail($email)->first();
 
-            if (NULL === $user) {
+            if (null === $user) {
                 $user = new DashboardUser();
 
                 $user->fill([
@@ -168,7 +174,7 @@ class SolutionController extends Controller
             'uuid'              => $uuid,
             'title'             => $attributes['data'][0][0]['value'],
             'data'              => $attributes['data'],
-            'dashboard_user_id' => ($user) ? ($user->id) : (NULL),
+            'dashboard_user_id' => ($user) ? ($user->id) : (null),
             'status'            => 'received',
         ]);
 
