@@ -30,12 +30,30 @@
         })->toArray(),
     ])
 
+    @formField('input', [
+        'name'         => 'research_percentage',
+        'label'        => 'Research percentage',
+        'note'         => 'The completion percentage of the research.',
+        'type'         => 'number',
+        'required'     => false,
+        'default'      => 0,
+    ])
+
+    @formField('input', [
+        'name'         => 'prototyping_percentage',
+        'label'        => 'Prototyping percentage',
+        'note'         => 'The completion percentage of the prototyping.',
+        'type'         => 'number',
+        'required'     => false,
+        'default'      => 0,
+    ])
+
     @formField('medias', [
         'name'         => 'image',
         'label'        => 'Image',
         'withVideoUrl' => false,
         'withAddInfo'  => false,
-        'maxlength'    => 1
+        'maxlength'    => 1,
     ])
 
     @formField('browser', [
@@ -69,4 +87,3 @@
         ])
     </a17-fieldset>
 @stop
-
