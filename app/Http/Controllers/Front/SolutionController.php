@@ -132,18 +132,14 @@ class SolutionController extends Controller
                 }
 
                 /** Search for the name */
-                if (
-                    (false !== strpos(strtolower($field['label']), 'nume')) &&
-                    (false !== strpos(strtolower($field['label']), 'prenume'))
-                ) {
+                if ((false !== strpos(strtolower($field['label']), 'nume')) &&
+                    (false !== strpos(strtolower($field['label']), 'prenume'))) {
                     $name = $field['value'];
                 }
 
                 /** Search for the email */
-                if (
-                    (false !== strpos(strtolower($field['label']), 'e-mail')) ||
-                    (false !== strpos(strtolower($field['label']), 'email'))
-                ) {
+                if ((false !== strpos(strtolower($field['label']), 'e-mail')) ||
+                    (false !== strpos(strtolower($field['label']), 'email'))) {
                     $email = $field['value'];
                 }
             }
