@@ -2,54 +2,62 @@
 
 return [
 
-    'login'                       => 'Log in',
-    'rememberMe'                  => 'Remember me',
+    'login'                                       => 'Log in',
+    'rememberMe'                                  => 'Remember me',
 
-    'email'                       => 'Email',
-    'password'                    => 'Parola',
-    'password.confirm'            => 'Confirmă parola',
+    'email'                                       => 'Email',
+    'password'                                    => 'Parola',
+    'password.confirm'                            => 'Confirmă parola',
 
-    'solutions.title'             => 'Soluții',
-    'solutions.proposals'         => '{1}:count propunere|[2,19]:count propuneri|[20,*]:count de propuneri',
+    'solutions.title'                             => 'Soluții',
+    'solutions.proposals'                         => '{1}:count propunere|[2,19]:count propuneri|[20,*]:count de propuneri',
 
-    'jury.title'                  => 'Juriu',
+    'jury.title'                                  => 'Juriu',
 
-    'table.applicant_name'        => 'Nume asociație',
-    'table.application_date'      => 'Data aplicării',
-    'table.vote_status'           => 'Status vot',
-    'table.vote_status.progress'  => ':current/:total voturi',
-    'table.vote_status.expired'   => 'termenul a expirat',
-    'table.vote_status.pending'   => 'în așteptare',
-    'table.vote_status.voted'     => 'votat',
-    'table.vote.empty'            => 'Membrul juriului încă nu a evaluat această propunere',
+    'submissions.title'                           => 'Aplicările mele',
 
-    'table.solution_name'         => 'Numele soluției',
-    'table.application_count'     => 'Număr propuneri',
-    'table.submission_deadline'   => 'Deadline aplicare',
-    'table.evaluation_deadline'   => 'Deadline evaluare',
-    'table.actions'               => 'Acțiuni',
-    'table.note'                  => 'Notă de la evaluator',
+    'table.applicant_name'                        => 'Nume asociație',
+    'table.application_date'                      => 'Data aplicării',
+    'table.vote_status'                           => 'Status vot',
+    'table.vote_status.progress'                  => ':current/:total voturi',
+    'table.vote_status.expired'                   => 'termenul a expirat',
+    'table.vote_status.pending'                   => 'în așteptare',
+    'table.vote_status.voted'                     => 'votat',
+    'table.vote.empty'                            => 'Membrul juriului încă nu a evaluat această propunere',
+    'table.submission_status'                     => 'Status aplicare',
 
-    'table.evaluator'             => 'Nume',
-    'table.evaluation_created_at' => 'Data evaluării inițiale',
-    'table.evaluation_updated_at' => 'Ultimul update',
-    'table.evaluation_total'      => 'Notă finală',
+    'table.solution_name'                         => 'Numele soluției',
+    'table.application_count'                     => 'Număr propuneri',
+    'table.submission_deadline'                   => 'Deadline aplicare',
+    'table.evaluation_deadline'                   => 'Deadline evaluare',
+    'table.actions'                               => 'Acțiuni',
+    'table.note'                                  => 'Notă de la evaluator',
 
-    'table.solutions.empty'       => 'Încă nu există propuneri',
+    'table.evaluator'                             => 'Nume',
+    'table.evaluation_created_at'                 => 'Data evaluării inițiale',
+    'table.evaluation_updated_at'                 => 'Ultimul update',
+    'table.evaluation_total'                      => 'Notă finală',
 
-    'action.view_submissions'     => 'Vezi propuneri',
-    'action.view_form'            => 'Vezi formularul',
+    'table.solutions.empty'                       => 'Încă nu există propuneri',
 
+    'action.view_submissions'                     => 'Vezi propuneri',
+    'action.view_form'                            => 'Vezi formularul',
+    'action.view_solution'                        => 'Vezi soluție',
 
-    'evaluation'                  => 'Jurizare',
+    'evaluation'                                  => 'Jurizare',
 
-    'file.choose'                 => 'Alegeți fișierul',
-    'file.download'               => 'Descarcă documentul',
-    'file.template'               => 'Descarcă template',
+    'file.choose'                                 => 'Alegeți fișierul',
+    'file.download'                               => 'Descarcă documentul',
+    'file.template'                               => 'Descarcă template',
 
-    'nav.home'                    => 'Acasă',
+    'nav.home'                                    => 'Acasă',
 
-    'event.submit.success'        => 'Evaluarea a fost salvată cu succes!',
-    'event.submit.error'          => 'Ceva nu a funcționat cum trebuie. Te rugăm să încerci mai târziu!',
+    'event.submit.success'                        => 'Evaluarea a fost salvată cu succes!',
+    'event.submit.error'                          => 'Ceva nu a funcționat cum trebuie. Te rugăm să încerci mai târziu!',
+
+    'application_submissions_statuses.received'   => 'Aplicație primită',
+    'application_submissions_statuses.evaluation' => 'Aplicație în jurizare',
+    'application_submissions_statuses.rejected'   => 'Aplicație respinsă',
+    'application_submissions_statuses.accepted'   => 'Aplicație acceptată',
 
 ];

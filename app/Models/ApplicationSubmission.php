@@ -18,6 +18,8 @@ class ApplicationSubmission extends Model
         'uuid',
         'data',
         'solutions',
+        'dashboard_user_id',
+        'status',
     ];
 
     // add checkbox fields names here (published toggle is itself a checkbox)

@@ -33,6 +33,18 @@
         'label'    => 'Solution',
         'readonly' => true,
     ])
+
+    @formField('select', [
+        'name'        => 'status',
+        'label'       => 'Status',
+        'required'    => true,
+        'options'    => collect(config('dashboard.application_submissions_statuses'))->map(function ($stage) {
+            return [
+                'value' => $stage,
+                'label' => __("dashboard.application_submissions_statuses.$stage"),
+            ];
+        })->toArray()
+    ])
 @stop
 
 @section('fieldsets')

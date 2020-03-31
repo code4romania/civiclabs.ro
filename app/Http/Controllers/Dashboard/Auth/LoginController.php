@@ -20,7 +20,9 @@ class LoginController extends Controller
     |
     */
 
-    use AuthenticatesUsers;
+    use AuthenticatesUsers {
+        logout as performLogout;
+    }
 
     /**
      * Where to redirect users after login.
@@ -74,5 +76,11 @@ class LoginController extends Controller
         $user->update([
             'last_login_at' => Carbon::now()->toDateTimeString(),
         ]);
+    }
+
+    public function logout(Request $request)
+    {
+        $this->performLogout($request);
+        return redirect()->route('pages.index');
     }
 }
