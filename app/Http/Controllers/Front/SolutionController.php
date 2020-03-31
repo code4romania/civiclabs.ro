@@ -9,12 +9,9 @@ use App\Models\DashboardUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
-use Illuminate\Foundation\Auth\ResetsPasswords;
 
 class SolutionController extends Controller
 {
-    use ResetsPasswords;
-
     /**
      * Display a listing of the resource.
      *
@@ -162,19 +159,17 @@ class SolutionController extends Controller
                 ]);
 
                 $user->save();
-
-                /** Initiate password reset. */
-                $this->broker()->sendResetLink(['email' => $user->email]);
             }
         }
 
         /** Save application submission. */
         $submission = new ApplicationSubmission();
         $submission->fill([
-            'uuid'  => $uuid,
-            'title' => $attributes['data'][0][0]['value'],
-            'data'  => $attributes['data'],
+            'uuid'              => $uuid,
+            'title'             => $attributes['data'][0][0]['value'],
+            'data'              => $attributes['data'],
             'dashboard_user_id' => ($user) ? ($user->id) : (NULL),
+            'status'            => 'received',
         ]);
 
         $submission->form()->associate($item->applicationForms->first());
