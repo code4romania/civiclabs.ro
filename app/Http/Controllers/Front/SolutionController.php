@@ -126,7 +126,7 @@ class SolutionController extends Controller
                         $request->file($inputName)->getClientOriginalName()
                     );
 
-                    // $file = $request->file($inputName)->storeAs("/{$uuid}/", $fileName, 'applicationDocuments');
+                    $file = $request->file($inputName)->storeAs("/{$uuid}/", $fileName, 'applicationDocuments');
 
                     $attributes['data'][$sectionIndex][$fieldIndex]['value'] = $fileName;
                 }
