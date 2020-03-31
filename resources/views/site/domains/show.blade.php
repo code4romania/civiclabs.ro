@@ -8,7 +8,8 @@
         ])
 
         @include('site.domains.progress', [
-            'current' => $item->stage,
+            'prototyping_percentage' => $item->prototyping_percentage,
+            'research_percentage'    => $item->research_percentage,
         ])
         <div class="section is-slim">
             {!! $item->renderBlocks(false) !!}
