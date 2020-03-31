@@ -2,7 +2,7 @@
 
 namespace App\Traits;
 
-use App\Models\ApplicationEvaluation;
+use App\Models\ApplicationSubmission;
 use App\Models\ApplicationForm;
 use App\Models\Partner;
 use App\Models\Solution;
@@ -53,6 +53,13 @@ trait UserTrait
         return $this->morphToMany(Partner::class, 'financeable');
     }
 
+    /** Get the application submission of the user. */
+    public function applicationSubmissions()
+    {
+        return $this->hasMany(ApplicationSubmission::class, 'dashboard_user_id')
+            ->orderBy('created_at', 'desc');
+    }
+
     public function getUserRoleDetailsAttribute()
     {
         switch ($this->user_role) {
@@ -68,20 +75,25 @@ trait UserTrait
 
     public function getAuthorizedSolutionsAttribute()
     {
-        $solutions = collect(null);
-        switch ($this->user_role) {
-            case 'financer':
-                if ($this->partners->count()) {
-                    $solutions = $this->partners->first()->financesSolutions;
-                }
-                break;
+        if ('applicant' === $this->user_role) {
+            return $this->applicationSubmissions;
+        } else {
+            $solutions = collect(null);
+            switch ($this->user_role) {
+                case 'financer':
+                    if ($this->partners->count()) {
+                        $solutions = $this->partners->first()->financesSolutions;
+                    }
+                    break;
 
-            case 'evaluator':
-                $solutions = $this->solutions;
-                break;
+                case 'evaluator':
+                    $solutions = $this->solutions;
+                    break;
+            }
+
+            return $solutions->whereIn('status', config('dashboard.show_solutions_with_status'));
         }
 
-        return $solutions->whereIn('status', config('dashboard.show_solutions_with_status'));
     }
 
     public function hasAccessToSolution(Solution $solution)
