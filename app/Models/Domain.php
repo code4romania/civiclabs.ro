@@ -21,6 +21,8 @@ class Domain extends Model
         // 'title',
         'stage',
         'position',
+        'research_percentage',
+        'prototyping_percentage',
         // 'public',
         // 'featured',
         // 'publish_start_date',
