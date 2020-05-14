@@ -79,9 +79,9 @@ class DashboardController extends Controller
                     if (!is_null($evaluation)) {
                         $evalData = collect($evaluation->data);
 
-                        $total = number_format($evalData->map(function ($section) {
-                            return collect($section)->reduce('sum') / count($section);
-                        })->reduce('sum'), 2);
+                        $total = $evalData->map(function ($section) {
+                            return collect($section)->reduce('sum');
+                        })->reduce('sum');
 
                         // Combine scores with questions
                         $details = $evalSections->map(function ($section, $sectionIndex) use ($evalData) {
@@ -94,7 +94,7 @@ class DashboardController extends Controller
 
                             $sum = collect($section['criteria'])->pluck('value')->reduce('sum');
 
-                            $section['average'] = number_format($sum / count($section['criteria']), 2);
+                            $section['total'] = $sum;
 
                             return $section;
                         });
@@ -104,13 +104,13 @@ class DashboardController extends Controller
                         'evaluator'             => $member->name,
                         'evaluation_created_at' => $evaluation
                             ? $evaluation->created_at
-                                    ->timezone(config('app.display_timezone'))
-                                    ->toDateTimeString()
+                            ->timezone(config('app.display_timezone'))
+                            ->toDateTimeString()
                             : '-',
                         'evaluation_updated_at' => $evaluation
                             ? $evaluation->updated_at
-                                    ->timezone(config('app.display_timezone'))
-                                    ->toDateTimeString()
+                            ->timezone(config('app.display_timezone'))
+                            ->toDateTimeString()
                             : '-',
                         'evaluation_total'      => $total ?? '-',
                         'note'                  => $evaluation->note ?? '',
@@ -182,7 +182,7 @@ class DashboardController extends Controller
         }, 200, [
             "Content-Type"        => $disk->mimeType($path),
             "Content-Length"      => $disk->size($path),
-            "Content-Disposition" => "attachment; filename=\"" . basename($path). "\"",
+            "Content-Disposition" => "attachment; filename=\"" . basename($path) . "\"",
         ]);
     }
 }
