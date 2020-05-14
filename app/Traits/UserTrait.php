@@ -81,7 +81,7 @@ trait UserTrait
                 break;
         }
 
-        return $solutions->whereIn('status', config('dashboard.show_solutions_with_status'));
+        return $solutions;
     }
 
     public function hasAccessToSolution(Solution $solution)
