@@ -139,14 +139,14 @@
                 return parseFloat((Math.random() * (max - min) + min).toPrecision(2));
             },
             submit() {
-                axios.post(this.action, this.formData).then((response) => {
-                    this.$toast.open({
+                axios.post(this.action, this.formData).then(() => {
+                    this.$buefy.toast.open({
                         message: this.$props.messageSuccess,
                         type: 'is-success',
                         position: 'is-bottom',
                     })
-                }).catch((response) => {
-                    this.$toast.open({
+                }).catch(() => {
+                    this.$buefy.toast.open({
                         message: this.$props.messageError,
                         type: 'is-danger',
                         position: 'is-bottom',
