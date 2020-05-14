@@ -3,7 +3,7 @@
         <div v-for="section, sectionIndex in sections" class="message is-light is-marginless">
             <div class="message-header is-size-6">
                 <span>{{ section.title }}</span>
-                <span class="tag is-large">{{ sectionAverage[sectionIndex].toPrecision(3) }}</span>
+                <span class="tag is-large">{{ sectionTotal[sectionIndex] }}</span>
             </div>
             <div class="message-body">
                 <div class="columns is-centered" v-for="criterion, criterionIndex in section.criteria">
@@ -29,7 +29,7 @@
         <div class="message is-dark is-marginless">
             <div class="message-header is-size-6">
                 <span>Total</span>
-                <span class="tag is-dark is-large">{{ total.toPrecision(3) }}</span>
+                <span class="tag is-dark is-large">{{ total }}</span>
             </div>
         </div>
 
@@ -108,11 +108,11 @@
             };
         },
         computed: {
-            sectionAverage() {
-                return this.points.map(s => s.reduce((a, b) => a + b) / s.length);
+            sectionTotal() {
+                return this.points.map(s => s.reduce((a, b) => a + b));
             },
             total() {
-                return this.sectionAverage.reduce((a, b) => a + b);
+                return this.sectionTotal.reduce((a, b) => a + b);
             },
             formData() {
                 return {

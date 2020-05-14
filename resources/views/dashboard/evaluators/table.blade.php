@@ -39,7 +39,7 @@
             <div class="message is-light is-marginless" v-for="section in props.row.details">
                 <div class="message-header is-size-6">
                     <span v-text="section.title"></span>
-                    <span class="tag is-large" v-text="section.average"></span>
+                    <span class="tag is-large" v-text="section.total"></span>
                 </div>
                 <div class="message-body">
                     <div class="columns is-centered" v-for="criterion, criterionIndex in section.criteria">
