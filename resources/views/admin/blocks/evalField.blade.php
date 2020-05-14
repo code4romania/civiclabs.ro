@@ -11,5 +11,4 @@
     'label'          => 'Weight',
     'type'           => 'number',
     'required'       => true,
-    'translated'     => true,
 ])
