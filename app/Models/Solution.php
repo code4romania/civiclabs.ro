@@ -22,6 +22,11 @@ class Solution extends Model implements Sortable
 {
     use HasBlocks, HasTranslation, HasSlug, HasMedias, HasFiles, HasRevisions, HasPosition;
 
+    protected $with = [
+        'translations',
+        'slugs',
+    ];
+
     protected $fillable = [
         'published',
         'status',

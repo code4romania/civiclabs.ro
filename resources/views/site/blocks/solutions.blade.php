@@ -1,8 +1,17 @@
 @php
     $orderedList = $block->browserIds('solutions');
-    $solutions = App\Models\Solution::find($orderedList)->sortBy(function ($i) use ($orderedList) {
-        return array_search($i->getKey(), $orderedList);
-    });;
+    $solutions = App\Models\Solution::with([
+        'domains',
+        'medias',
+        'financers',
+        'applicants',
+        'implementers',
+        'developers',
+    ])
+        ->find($orderedList)
+        ->sortBy(function ($i) use ($orderedList) {
+            return array_search($i->getKey(), $orderedList);
+        });
 @endphp
 
 <section class="section block block-solutions">

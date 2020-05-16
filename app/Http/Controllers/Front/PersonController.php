@@ -16,7 +16,10 @@ class PersonController extends Controller
      */
     public function show($slug)
     {
-        $item = Person::forSlug($slug)->publishedInListings()->withActiveTranslations()->firstOrFail();
+        $item = Person::forSlug($slug)
+            ->publishedInListings()
+            ->withActiveTranslations()
+            ->firstOrFail();
 
         $this->setSeo([
             'title'       => $item->name,

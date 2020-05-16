@@ -25,8 +25,20 @@ class SolutionController extends Controller
 
         $this->setSeo($header);
 
+        $solutions = Solution::with([
+            'domains',
+            'medias',
+            'financers',
+            'applicants',
+            'implementers',
+            'developers',
+        ]);
+
         return view('site.solutions.index', [
-            'items'         => Solution::publishedInListings()->ordered()->get(),
+            'items'         => $solutions
+                ->publishedInListings()
+                ->ordered()
+                ->get(),
             'alternateUrls' => $this->getAlternateLocaleUrls('solutions.index'),
             'header'        => $header,
         ]);
@@ -40,7 +52,10 @@ class SolutionController extends Controller
      */
     public function show($slug)
     {
-        $item = Solution::forSlug($slug)->publishedInListings()->withActiveTranslations()->firstOrFail();
+        $item = Solution::forSlug($slug)
+            ->publishedInListings()
+            ->withActiveTranslations()
+            ->firstOrFail();
 
         $this->setSeo([
             'title'       => $item->title,
@@ -70,7 +85,10 @@ class SolutionController extends Controller
 
     public function apply($slug)
     {
-        $item = Solution::forSlug($slug)->publishedInListings()->withActiveTranslations()->firstOrFail();
+        $item = Solution::forSlug($slug)
+            ->publishedInListings()
+            ->withActiveTranslations()
+            ->firstOrFail();
 
         if (!$item->applicationForms->first() || !$item->applicationForms->first()->accepts_submissions) {
             abort(404);
@@ -91,7 +109,11 @@ class SolutionController extends Controller
 
     public function submit($slug, Request $request)
     {
-        $item = Solution::forSlug($slug)->publishedInListings()->withActiveTranslations()->firstOrFail();
+        $item = Solution::forSlug($slug)
+            ->publishedInListings()
+            ->withActiveTranslations()
+            ->firstOrFail();
+
         if (!$item->applicationForms->first() || !$item->applicationForms->first()->accepts_submissions) {
             abort(404);
         }

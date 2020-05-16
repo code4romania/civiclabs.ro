@@ -16,19 +16,20 @@ class DomainController extends Controller
     public function index()
     {
         $this->setSeo([
-            'title'       => $this->getStoredValue('teamTitle', 'site'),
-            'description' => $this->getStoredValue('teamDescription', 'site'),
+            'title'       => $this->getStoredValue('domainsTitle', 'site'),
+            'description' => $this->getStoredValue('domainsDescription', 'site'),
         ]);
 
-        $domains = Domain::publishedInListings()->withActiveTranslations()->ordered();
-
         return view('site.domains.index', [
-            'items'         => $domains->get(),
+            'items'         => Domain::publishedInListings()
+                ->withActiveTranslations()
+                ->ordered()
+                ->get(),
             'alternateUrls' => $this->getAlternateLocaleUrls('domains.index'),
             'header'        => [
                 'title'       => $this->getStoredValue('domainsTitle', 'site'),
                 'description' => $this->getStoredValue('domainsDescription', 'site'),
-            ]
+            ],
         ]);
     }
 
@@ -40,7 +41,10 @@ class DomainController extends Controller
      */
     public function show($slug)
     {
-        $item = Domain::forSlug($slug)->publishedInListings()->withActiveTranslations()->firstOrFail();
+        $item = Domain::forSlug($slug)
+            ->publishedInListings()
+            ->withActiveTranslations()
+            ->firstOrFail();
 
         $this->setSeo([
             'title'       => $item->title,

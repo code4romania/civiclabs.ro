@@ -16,6 +16,12 @@ class Domain extends Model implements Sortable
 {
     use HasBlocks, HasTranslation, HasSlug, HasMedias, HasFiles, HasRevisions, HasPosition;
 
+    protected $with = [
+        'translations',
+        'medias',
+        'slugs',
+    ];
+
     protected $fillable = [
         'published',
         // 'title',

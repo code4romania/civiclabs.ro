@@ -25,4 +25,12 @@ class SolutionController extends ModuleController
             'sort' => true,
         ],
     ];
+
+    /*
+     * Relations to eager load for the index view
+     */
+    protected $indexWith = [
+        'translations',
+        'medias',
+    ];
 }

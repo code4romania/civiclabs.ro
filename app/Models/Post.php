@@ -15,6 +15,11 @@ class Post extends Model implements Sortable
 {
     use HasBlocks, HasTranslation, HasSlug, HasMedias, HasRevisions, HasPosition;
 
+    protected $with = [
+        'translations',
+        'medias',
+    ];
+
     protected $dates = [
         'created_at',
         'updated_at',
