@@ -12,7 +12,7 @@ use A17\Twill\Models\Behaviors\HasPosition;
 use A17\Twill\Models\Behaviors\Sortable;
 use A17\Twill\Models\Model;
 
-class Domain extends Model
+class Domain extends Model implements Sortable
 {
     use HasBlocks, HasTranslation, HasSlug, HasMedias, HasFiles, HasRevisions, HasPosition;
 
@@ -70,7 +70,10 @@ class Domain extends Model
 
     public function subdomains()
     {
-        return $this->domains()->publishedInListings();
+        return $this->domains()
+            ->withPivot(['position'])
+            ->orderBy('pivot_position', 'asc')
+            ->publishedInListings();
     }
 
     public function parent()
