@@ -42,7 +42,7 @@ class ApplicationSubmissionController extends ModuleController
     protected function indexData($request)
     {
         return [
-            'solutionList' => app(SolutionRepository::class)->listAll(),
+            'solutionList' => app(SolutionRepository::class)->listAll('title'),
         ];
     }
 }

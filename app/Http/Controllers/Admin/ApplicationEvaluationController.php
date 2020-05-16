@@ -48,18 +48,27 @@ class ApplicationEvaluationController extends ModuleController
         ],
     ];
 
-    protected $filters = [
-        'evaluator'  => 'evaluator_id',
-        'submission' => 'submission_id',
-        'solution'   => 'solution_id',
+    /*
+     * Relations to eager load for the index view
+     */
+    protected $indexWith = [
+        'evaluator',
+        'submission',
+        'submission.solution',
     ];
 
-    protected function indexData($request)
-    {
-        return [
-            'evaluatorList'  => app(DashboardUserRepository::class)->listAll('name'),
-            'submissionList' => app(ApplicationSubmissionRepository::class)->listAll('title'),
-            'solutionList'   => app(SolutionRepository::class)->listAll('title'),
-        ];
-    }
+    // protected $filters = [
+    //     'evaluator'  => 'evaluator_id',
+    //     'submission' => 'submission_id',
+    //     'solution'   => 'solution_id',
+    // ];
+
+    // protected function indexData($request)
+    // {
+    //     return [
+    //         'evaluatorList'  => app(DashboardUserRepository::class)->listAll('name'),
+    //         'submissionList' => app(ApplicationSubmissionRepository::class)->listAll('title'),
+    //         'solutionList'   => app(SolutionRepository::class)->listAll('title'),
+    //     ];
+    // }
 }

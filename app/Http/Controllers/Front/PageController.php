@@ -36,7 +36,10 @@ class PageController extends Controller
      */
     public function show($slug)
     {
-        $item = Page::forSlug($slug)->publishedInListings()->withActiveTranslations()->firstOrFail();
+        $item = Page::forSlug($slug)
+            ->publishedInListings()
+            ->withActiveTranslations()
+            ->firstOrFail();
 
         $this->setSeo([
             'title'       => $item->title,

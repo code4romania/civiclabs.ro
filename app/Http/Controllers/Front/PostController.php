@@ -38,7 +38,10 @@ class PostController extends Controller
     public function show($slug)
     {
 
-        $item = Post::forSlug($slug)->publishedInListings()->withActiveTranslations()->firstOrFail();
+        $item = Post::forSlug($slug)
+            ->publishedInListings()
+            ->withActiveTranslations()
+            ->firstOrFail();
 
         $this->setSeo([
             'title'       => $item->title,
