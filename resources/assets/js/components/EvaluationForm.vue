@@ -5,6 +5,7 @@
                 <span>{{ section.title }}</span>
                 <span class="tag is-large">{{ sectionTotal[sectionIndex] }}</span>
             </div>
+            <div class="message-header" v-if="section.description" v-html="section.description"></div>
             <div class="message-body">
                 <div class="columns is-centered" v-for="criterion, criterionIndex in section.criteria">
                     <div class="column">
