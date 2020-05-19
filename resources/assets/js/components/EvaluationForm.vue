@@ -1,9 +1,16 @@
 <template>
     <form @submit.prevent="submit">
         <div v-for="section, sectionIndex in sections" class="message is-light is-marginless">
-            <div class="message-header is-size-6">
-                <span>{{ section.title }}</span>
-                <span class="tag is-large">{{ sectionTotal[sectionIndex] }}</span>
+            <div class="message-header is-size-6 columns is-centered is-marginless">
+                <span class="column">{{ section.title }}</span>
+                <span class="column is-narrow tag is-large">
+                    <small class="is-size-6 mr-1" v-text="labelSectionAverage" />
+                    {{ sectionAverage[sectionIndex] }}
+                </span>
+                <span class="column is-narrow tag is-large">
+                    <small class="is-size-6 mr-1" v-text="labelSectionTotal" />
+                    {{ sectionTotal[sectionIndex] }}
+                </span>
             </div>
             <div class="message-header" v-if="section.description" v-html="section.description"></div>
             <div class="message-body">
@@ -29,8 +36,14 @@
 
         <div class="message is-dark is-marginless">
             <div class="message-header is-size-6">
-                <span>Total</span>
-                <span class="tag is-dark is-large">{{ total }}</span>
+                <span v-text="labelEvaluationAverage" />
+                <span class="tag is-dark is-large">{{ average }}</span>
+            </div>
+        </div>
+        <div class="message is-black is-marginless">
+            <div class="message-header is-size-6">
+                <span v-text="labelEvaluationTotal" />
+                <span class="tag is-black is-large">{{ total }}</span>
             </div>
         </div>
 
@@ -89,6 +102,22 @@
                 type: String,
                 default: 'Something went wrong. Please try again later!',
             },
+            labelSectionAverage: {
+                type: String,
+                default: '',
+            },
+            labelSectionTotal: {
+                type: String,
+                default: '',
+            },
+            labelEvaluationAverage: {
+                type: String,
+                default: '',
+            },
+            labelEvaluationTotal: {
+                type: String,
+                default: '',
+            },
         },
         data() {
             let points = [];
@@ -110,10 +139,27 @@
         },
         computed: {
             sectionTotal() {
-                return this.points.map(s => s.reduce((a, b) => a + b));
+                return this.points.map(section => section.reduce((a, b) => a + b));
+            },
+            sectionAverage() {
+                let dividend = 0,
+                    divisor = 0;
+
+                return this.points.map((section, sectionIndex) => {
+                    for (let i = 0; i < section.length; i++) {
+                        dividend += this.sections[sectionIndex].criteria[i].weight * section[i];
+                        divisor  += this.sections[sectionIndex].criteria[i].weight;
+                    }
+
+                    return dividend / divisor;
+                });
+                
             },
             total() {
                 return this.sectionTotal.reduce((a, b) => a + b);
+            },
+            average() {
+                return this.sectionAverage.reduce((a, b) => a + b);
             },
             formData() {
                 return {

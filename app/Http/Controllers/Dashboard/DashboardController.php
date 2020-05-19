@@ -79,25 +79,36 @@ class DashboardController extends Controller
                     if (!is_null($evaluation)) {
                         $evalData = collect($evaluation->data);
 
-                        $total = $evalData->map(function ($section) {
-                            return collect($section)->reduce('sum');
-                        })->reduce('sum');
-
                         // Combine scores with questions
                         $details = $evalSections->map(function ($section, $sectionIndex) use ($evalData) {
                             $section['criteria'] = $section['criteria']
                                 ->map(function ($field, $fieldIndex) use ($evalData, $sectionIndex) {
-                                    $field['value'] = number_format($evalData[$sectionIndex][$fieldIndex], 2);
+                                    $field['value'] = intval($evalData[$sectionIndex][$fieldIndex]);
 
                                     return $field;
                                 });
 
-                            $sum = collect($section['criteria'])->pluck('value')->reduce('sum');
+                            $section['total'] = collect($section['criteria'])->pluck('value')->reduce('sum');
 
-                            $section['total'] = $sum;
+                            $dividend = $divisor = 0;
+
+                            foreach ($section['criteria'] as $item) {
+                                $dividend += $item['weight'] * $item['value'];
+                                $divisor  += $item['weight'];
+                            }
+
+                            $weightedAverage = $dividend / $divisor;
+
+                            $section['average'] = $weightedAverage;
 
                             return $section;
                         });
+
+                        $total = $evalData->map(function ($section) {
+                            return collect($section)->reduce('sum');
+                        })->reduce('sum');
+
+                        $average = $details->pluck('average')->reduce('sum');
                     }
 
                     return [
@@ -113,6 +124,7 @@ class DashboardController extends Controller
                             ->toDateTimeString()
                             : '-',
                         'evaluation_total'      => $total ?? '-',
+                        'evaluation_average'    => $average ?? '-',
                         'note'                  => $evaluation->note ?? '',
                         'details'               => $details ?? [],
                     ];
