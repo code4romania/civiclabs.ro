@@ -24,7 +24,7 @@ class PostController extends Controller
         $this->setSeo($header);
 
         return view('site.posts.index', [
-            'items'         => Post::publishedInListings()->ordered()->get(),
+            'items'         => Post::publishedInListings()->orderByDesc('publish_start_date')->get(),
             'alternateUrls' => $this->getAlternateLocaleUrls('blog.index'),
             'header'        => $header,
         ]);
