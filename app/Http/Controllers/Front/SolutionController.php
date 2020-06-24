@@ -151,9 +151,7 @@ class SolutionController extends Controller
             $user = DashboardUser::whereEmail($email)->first();
 
             if (null === $user) {
-                $user = new DashboardUser();
-
-                $user->fill([
+                $user = new DashboardUser([
                     'email'     => $email,
                     'name'      => $name,
                     'user_role' => 'applicant',
@@ -165,8 +163,8 @@ class SolutionController extends Controller
         }
 
         /** Save application submission. */
-        $submission = new ApplicationSubmission();
-        $submission->fill([
+
+        $submission = new ApplicationSubmission([
             'uuid'              => $uuid,
             'title'             => $attributes['data'][0][0]['value'],
             'data'              => $attributes['data'],

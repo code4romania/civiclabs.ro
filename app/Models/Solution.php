@@ -104,8 +104,7 @@ class Solution extends Model implements Sortable
 
     public function applicationSubmissions()
     {
-        return $this->hasMany(ApplicationSubmission::class)
-            ->orderBy('created_at', 'desc');
+        return $this->hasMany(ApplicationSubmission::class)->latest();
     }
 
     public function evaluators()

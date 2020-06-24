@@ -54,10 +54,9 @@ trait UserTrait
     }
 
     /** Get the application submission of the user. */
-    public function applicationSubmissions()
+    public function getApplicationSubmissionsAttribute()
     {
-        return $this->hasMany(ApplicationSubmission::class, 'dashboard_user_id')
-            ->orderBy('created_at', 'desc');
+        return $this->hasMany(ApplicationSubmission::class, 'dashboard_user_id')->latest();
     }
 
     public function getUserRoleDetailsAttribute()
@@ -73,26 +72,35 @@ trait UserTrait
         }
     }
 
+    /**
+     * Function that has a purpose of extracting the data
+     *  collection that will be displayed in the dashboard
+     *  of a dashboard user type.
+     *
+     * @return if user_type is applicant: the application submissions
+     *         if user_type is financer, evaluator: the solutions it has access to
+     */
     public function getAuthorizedSolutionsAttribute()
     {
         if ('applicant' === $this->user_role) {
             return $this->applicationSubmissions;
-        } else {
-            $solutions = collect(null);
-            switch ($this->user_role) {
-                case 'financer':
-                    if ($this->partners->count()) {
-                        $solutions = $this->partners->first()->financesSolutions;
-                    }
-                    break;
-
-                case 'evaluator':
-                    $solutions = $this->solutions;
-                    break;
-            }
-
-            return $solutions->whereIn('status', config('dashboard.show_solutions_with_status'));
         }
+
+        $solutions = collect(null);
+        switch ($this->user_role) {
+            case 'financer':
+                if ($this->partners->count()) {
+                    $solutions = $this->partners->first()->financesSolutions;
+                }
+                break;
+
+            case 'evaluator':
+                $solutions = $this->solutions;
+                break;
+        }
+
+        return $solutions->whereIn('status', config('dashboard.show_solutions_with_status'));
+
     }
 
     public function hasAccessToSolution(Solution $solution)

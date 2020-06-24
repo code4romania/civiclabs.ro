@@ -58,4 +58,9 @@ class ApplicationSubmission extends Model
     {
         return $this->hasMany(ApplicationEvaluation::class, 'submission_id');
     }
+
+    public function scopeLatest($query)
+    {
+        return $query->orderBy('created_at', 'desc');
+    }
 }
