@@ -1,8 +1,17 @@
 <div class="column">
     <div class="card"
         style="
-            @if ($item->background_color) background-color: {{ $item->background_color }}; @endif
-            @if ($item->text_color) color: {{ $item->text_color }}; @endif
+            @if ($block->input('background_color'))
+                background-color: {{ $block->input('background_color') }};
+            @elseif ($item->background_color)
+                background-color: {{ $item->background_color }};
+            @endif
+
+            @if ($block->input('text_color'))
+                color: {{ $block->input('text_color') }};
+            @elseif ($item->text_color)
+                color: {{ $item->text_color }};
+            @endif
         ">
 
         @if ($item->hasImage('image'))
