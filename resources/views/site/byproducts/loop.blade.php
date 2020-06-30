@@ -36,17 +36,22 @@
         @if ($item->title || strip_tags($item->description))
             <div class="card-content">
                 <div class="content">
-                    <p class="title is-size-6">
-                        @if ($item->standalone_page)
-                            <a href="{{ route('byproducts.show', ['byproduct' => $item->slug]) }}">
+                    <div style="display: flex; align-items:center; margin-bottom:10px;">
+                        @if ($block->input('icon'))
+                            <span class="material-icons">{{ $block->input('icon') }}</span>
                         @endif
+                        <p class="title is-size-6" style="margin-left:5px">
+                            @if ($item->standalone_page)
+                                <a href="{{ route('byproducts.show', ['byproduct' => $item->slug]) }}">
+                            @endif
 
-                        {{ $item->title }}
+                            {{ $item->title }}
 
-                        @if ($item->standalone_page)
-                            </a>
-                        @endif
-                    </p>
+                            @if ($item->standalone_page)
+                                </a>
+                            @endif
+                        </p>
+                    </div>
                     {!! $item->description !!}
                 </div>
             </div>
