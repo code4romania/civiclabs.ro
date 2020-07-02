@@ -1,18 +1,11 @@
-<div class="column" style="padding-left: 0; padding-right: 0;">
-    <div class="card"
-        style="
-            @if ($block->input('background_color'))
-                background-color: {{ $block->input('background_color') }};
-            @elseif ($item->background_color)
-                background-color: {{ $item->background_color }};
-            @endif
-
-            @if ($block->input('text_color'))
-                color: {{ $block->input('text_color') }};
-            @elseif ($item->text_color)
-                color: {{ $item->text_color }};
-            @endif
-        ">
+<div class="column
+    @if (count($orderedList) == 1)
+        is-full
+    @else
+        is-half
+    @endif
+">
+    <div class="card">
 
         @if ($item->hasImage('image'))
             <figure class="card-image">
@@ -34,24 +27,37 @@
         @endif
 
         @if ($item->title || strip_tags($item->description))
+            <div class="card-header" style="
+                @if ($block->input('background_color'))
+                    background-color: {{ $block->input('background_color') }};
+                @endif
+
+                @if ($block->input('text_color'))
+                    color: {{ $block->input('text_color') }};
+                @endif
+            ">
+                <p class="card-header-title is-size-6">
+                @if ($item->standalone_page)
+                    <a href="{{ route('byproducts.show', ['byproduct' => $item->slug]) }}"
+                        style="
+                        @if ($block->input('text_color'))
+                            color: {{ $block->input('text_color') }};
+                        @endif
+                    ">
+                @endif
+
+                {{ $item->title }}
+
+                @if ($item->standalone_page)
+                    </a>
+                @endif
+                </p>
+                @if ($block->input('icon'))
+                    <span class="material-icons card-header-icon">{{ $block->input('icon') }}</span>
+                @endif
+            </div>
             <div class="card-content">
                 <div class="content">
-                    <div style="display: flex; align-items:center; margin-bottom:10px;">
-                        @if ($block->input('icon'))
-                            <span class="material-icons">{{ $block->input('icon') }}</span>
-                        @endif
-                        <p class="title is-size-6" style="margin-left:5px">
-                            @if ($item->standalone_page)
-                                <a href="{{ route('byproducts.show', ['byproduct' => $item->slug]) }}">
-                            @endif
-
-                            {{ $item->title }}
-
-                            @if ($item->standalone_page)
-                                </a>
-                            @endif
-                        </p>
-                    </div>
                     {!! $item->description !!}
                 </div>
             </div>

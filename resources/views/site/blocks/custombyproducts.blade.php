@@ -22,7 +22,7 @@
     }
 @endphp
 @foreach ($custombyproducts as $customitem)
-    <div class="column is-{{ $byproductWidth }}-tablet">
+    <div class="column is-{{ $byproductWidth }}">
         <div class="card">
             @if ($customitem->hasImage('image'))
                 <figure class="card-image">
@@ -43,7 +43,7 @@
             @endif
 
             @if ($customitem->title || strip_tags($customitem->description))
-                <div style=" display:flex; justify-content:space-between; align-items:center; padding:0 25px;
+                <div class="card-header" style="
                     @if ($block->input('background_color'))
                         background-color: {{ $block->input('background_color') }};
                     @endif
@@ -52,9 +52,7 @@
                         color: {{ $block->input('text_color') }};
                     @endif
                 ">
-                    <p class="title is-size-6" style="
-                         margin:15px 0 !important;
-                    ">
+                    <p class="card-header-title is-size-6">
                     @if ($customitem->standalone_page)
                         <a href="{{ route('byproducts.show', ['byproduct' => $customitem->slug]) }}"
                             style="
@@ -71,7 +69,7 @@
                     @endif
                     </p>
                     @if ($block->input('icon'))
-                        <span class="material-icons">{{ $block->input('icon') }}</span>
+                        <span class="material-icons card-header-icon">{{ $block->input('icon') }}</span>
                     @endif
                 </div>
                 <div class="card-content">
