@@ -65,6 +65,11 @@ return [
             'icon'       => 'text',
             'component'  => 'a17-block-byproducts',
         ],
+        'custombyproducts' => [
+            'title'      => 'Custom Byproducts',
+            'icon'       => 'text',
+            'component'  => 'a17-block-custombyproducts',
+        ],
         'domains' => [
             'title'      => 'Domains',
             'icon'       => 'text',

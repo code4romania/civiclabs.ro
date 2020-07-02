@@ -1,4 +1,4 @@
-<div class="column">
+<div class="column" style="padding-left: 0; padding-right: 0;">
     <div class="card"
         style="
             @if ($block->input('background_color'))
