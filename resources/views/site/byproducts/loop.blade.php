@@ -37,23 +37,30 @@
                 @endif
             ">
                 <p class="card-header-title is-size-6">
-                @if ($item->standalone_page)
+                    @if ($item->standalone_page)
+                        <a href="{{ route('byproducts.show', ['byproduct' => $item->slug]) }}"
+                            style="text-decoration:underline;
+                            @if ($block->input('text_color'))
+                                color: {{ $block->input('text_color') }};
+                            @endif
+                        ">
+                    @endif
+
+                    {{ $item->title }}
+
+                    @if ($item->standalone_page)
+                        </a>
+                    @endif
+                </p>
+                @if ($block->input('icon'))
                     <a href="{{ route('byproducts.show', ['byproduct' => $item->slug]) }}"
                         style="
                         @if ($block->input('text_color'))
                             color: {{ $block->input('text_color') }};
                         @endif
                     ">
-                @endif
-
-                {{ $item->title }}
-
-                @if ($item->standalone_page)
+                        <span class="material-icons card-header-icon">{{ $block->input('icon') }}</span>
                     </a>
-                @endif
-                </p>
-                @if ($block->input('icon'))
-                    <span class="material-icons card-header-icon">{{ $block->input('icon') }}</span>
                 @endif
             </div>
             <div class="card-content">
@@ -64,7 +71,7 @@
         @endif
 
         @if (($item->people->count() || $item->file('attachment') || $item->standalone_page))
-            <div class="card-content">
+            <div class="card-content" style="margin-top: auto;">
                 <div class="columns is-vcentered is-multiline">
                     <div class="column is-12-tablet is-7-widescreen byproduct-author">
                         @foreach ($item->people as $author)
