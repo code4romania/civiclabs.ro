@@ -1,8 +1,8 @@
 @formField('browser', [
     'routePrefix' => 'solutions',
     'moduleName'  => 'byproducts',
-    'name'        => 'custombyproducts',
-    'label'       => 'Custom Byproducts',
+    'name'        => 'custombyproduct',
+    'label'       => 'Byproduct',
     'max'         => 1,
 ])
 
@@ -17,11 +17,11 @@
             'label' => '25%',
         ],
         [
-            'value' => 'third',
+            'value' => 'half',
             'label' => '50%',
         ],
         [
-            'value' => 'half',
+            'value' => 'third',
             'label' => '75%',
         ],
         [
@@ -261,11 +261,11 @@
 ])
 
 @formField('color', [
-    'name'           => 'background_color',
-    'label'          => 'Background color',
+    'name'  => 'background_color',
+    'label' => 'Background color',
 ])
 
 @formField('color', [
-    'name'           => 'text_color',
-    'label'          => 'Text color',
+    'name'  => 'text_color',
+    'label' => 'Text color',
 ])

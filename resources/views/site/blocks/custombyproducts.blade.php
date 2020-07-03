@@ -1,19 +1,17 @@
 @php
-    $customorderedList = $block->browserIds('custombyproducts');
-    $custombyproducts = App\Models\Byproduct::find($customorderedList)->sortBy(function ($i) use ($customorderedList) {
-        return array_search($i->getKey(), $customorderedList);
-    });;
-    $profilePage = $profilePage ?? false;
+    $customorderedList = $block->browserIds('custombyproduct');
+    $custombyproduct = App\Models\Byproduct::find($customorderedList);
+
     switch ($block->input('width')) {
         case 'quarter':
             $byproductWidth = 3;
             break;
 
-        case 'third':
+        case 'half':
             $byproductWidth = 6;
             break;
 
-        case 'half':
+        case 'third':
             $byproductWidth = 9;
             break;
         case 'full':
@@ -21,7 +19,8 @@
         break;
     }
 @endphp
-@foreach ($custombyproducts as $customitem)
+
+@foreach ($custombyproduct as $customitem)
     <div class="column is-{{ $byproductWidth }}">
         <div class="card">
             @if ($customitem->hasImage('image'))
@@ -67,10 +66,12 @@
                     @if ($customitem->standalone_page)
                         </a>
                     @endif
-                    </p>
+
                     @if ($block->input('icon'))
                         <span class="material-icons card-header-icon">{{ $block->input('icon') }}</span>
                     @endif
+                    </p>
+
                 </div>
                 <div class="card-content">
                     <div class="content">

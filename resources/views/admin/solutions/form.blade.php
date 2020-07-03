@@ -146,7 +146,7 @@
             'withoutSeparator' => false,
             'blocks' => [
                 'byproducts',
-                'custombyproducts'
+                'custombyproduct'
             ]
         ])
     </a17-fieldset>
