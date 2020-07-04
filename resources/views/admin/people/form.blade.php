@@ -55,7 +55,7 @@
             'label'      => 'Facebook',
             'prefix'     => 'https://www.facebook.com/',
             'translated' => false,
-            'maxlength'  => 50,
+            'maxlength'  => 100,
         ])
 
         @formField('input', [
@@ -63,7 +63,7 @@
             'label'      => 'Twitter',
             'prefix'     => 'https://twitter.com/',
             'translated' => false,
-            'maxlength'  => 50,
+            'maxlength'  => 100,
         ])
 
         @formField('input', [
@@ -71,7 +71,7 @@
             'label'      => 'LinkedIn',
             'prefix'     => 'https://www.linkedin.com/in/',
             'translated' => false,
-            'maxlength'  => 50,
+            'maxlength'  => 100,
         ])
     </a17-fieldset>
 
