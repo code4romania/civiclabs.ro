@@ -6,6 +6,7 @@
         "php": "^7.3",
         "area17/twill": "1.2.x-dev",
         "artesaos/seotools": "^0.15.0",
+        "doctrine/dbal": "^2.10",
         "embed/embed": "^3.3",
         "fideloper/proxy": "^4.0",
         "kalnoy/nestedset": "^4.3",
