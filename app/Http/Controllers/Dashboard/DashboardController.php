@@ -79,40 +79,52 @@ class DashboardController extends Controller
                     if (!is_null($evaluation)) {
                         $evalData = collect($evaluation->data);
 
-                        $total = number_format($evalData->map(function ($section) {
-                            return collect($section)->reduce('sum') / count($section);
-                        })->reduce('sum'), 2);
-
                         // Combine scores with questions
                         $details = $evalSections->map(function ($section, $sectionIndex) use ($evalData) {
                             $section['criteria'] = $section['criteria']
                                 ->map(function ($field, $fieldIndex) use ($evalData, $sectionIndex) {
-                                    $field['value'] = number_format($evalData[$sectionIndex][$fieldIndex], 2);
+                                    $field['value'] = intval($evalData[$sectionIndex][$fieldIndex]);
 
                                     return $field;
                                 });
 
-                            $sum = collect($section['criteria'])->pluck('value')->reduce('sum');
+                            $section['total'] = collect($section['criteria'])->pluck('value')->reduce('sum');
 
-                            $section['average'] = number_format($sum / count($section['criteria']), 2);
+                            $dividend = $divisor = 0;
+
+                            foreach ($section['criteria'] as $item) {
+                                $dividend += $item['weight'] * $item['value'];
+                                $divisor  += $item['weight'];
+                            }
+
+                            $weightedAverage = $dividend / $divisor;
+
+                            $section['average'] = $weightedAverage;
 
                             return $section;
                         });
+
+                        $total = $evalData->map(function ($section) {
+                            return collect($section)->reduce('sum');
+                        })->reduce('sum');
+
+                        $average = $details->pluck('average')->reduce('sum');
                     }
 
                     return [
                         'evaluator'             => $member->name,
                         'evaluation_created_at' => $evaluation
                             ? $evaluation->created_at
-                                    ->timezone(config('app.display_timezone'))
-                                    ->toDateTimeString()
+                            ->timezone(config('app.display_timezone'))
+                            ->toDateTimeString()
                             : '-',
                         'evaluation_updated_at' => $evaluation
                             ? $evaluation->updated_at
-                                    ->timezone(config('app.display_timezone'))
-                                    ->toDateTimeString()
+                            ->timezone(config('app.display_timezone'))
+                            ->toDateTimeString()
                             : '-',
                         'evaluation_total'      => $total ?? '-',
+                        'evaluation_average'    => $average ?? '-',
                         'note'                  => $evaluation->note ?? '',
                         'details'               => $details ?? [],
                     ];
@@ -182,7 +194,7 @@ class DashboardController extends Controller
         }, 200, [
             "Content-Type"        => $disk->mimeType($path),
             "Content-Length"      => $disk->size($path),
-            "Content-Disposition" => "attachment; filename=\"" . basename($path). "\"",
+            "Content-Disposition" => "attachment; filename=\"" . basename($path) . "\"",
         ]);
     }
 }

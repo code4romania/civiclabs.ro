@@ -33,7 +33,11 @@ return [
     'table.evaluator'             => 'Nume',
     'table.evaluation_created_at' => 'Data evaluării inițiale',
     'table.evaluation_updated_at' => 'Ultimul update',
-    'table.evaluation_total'      => 'Notă finală',
+    'table.evaluation_total'      => 'Punctaj',
+    'table.evaluation_average'    => 'Medie ponderată',
+
+    'table.section_total'         => 'Punctaj',
+    'table.section_average'       => 'Medie ponderată',
 
     'table.solutions.empty'       => 'Încă nu există propuneri',
 

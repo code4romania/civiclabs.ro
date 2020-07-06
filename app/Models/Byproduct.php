@@ -16,6 +16,11 @@ class Byproduct extends Model implements Sortable
 {
     use HasBlocks, HasTranslation, HasSlug, HasMedias, HasFiles, HasRevisions, HasPosition;
 
+    protected $with = [
+        'translations',
+        'medias',
+    ];
+
     protected $fillable = [
         'published',
         'author',

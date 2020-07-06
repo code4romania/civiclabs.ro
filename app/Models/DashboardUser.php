@@ -8,6 +8,7 @@ use App\Traits\UserTrait;
 class DashboardUser extends Model
 {
     use UserTrait;
+
     /**
      * The database table used by the model.
      *

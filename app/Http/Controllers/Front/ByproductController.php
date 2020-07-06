@@ -18,7 +18,10 @@ class ByproductController extends Controller
      */
     public function show($slug)
     {
-        $item = Byproduct::forSlug($slug)->publishedInListings()->withActiveTranslations()->firstOrFail();
+        $item = Byproduct::forSlug($slug)
+            ->publishedInListings()
+            ->withActiveTranslations()
+            ->firstOrFail();
 
         if (!$item->standalone_page) {
             abort(404);

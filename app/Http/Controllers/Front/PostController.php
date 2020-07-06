@@ -24,7 +24,7 @@ class PostController extends Controller
         $this->setSeo($header);
 
         return view('site.posts.index', [
-            'items'         => Post::publishedInListings()->ordered()->get(),
+            'items'         => Post::publishedInListings()->orderByDesc('publish_start_date')->get(),
             'alternateUrls' => $this->getAlternateLocaleUrls('blog.index'),
             'header'        => $header,
         ]);
@@ -38,7 +38,10 @@ class PostController extends Controller
     public function show($slug)
     {
 
-        $item = Post::forSlug($slug)->publishedInListings()->withActiveTranslations()->firstOrFail();
+        $item = Post::forSlug($slug)
+            ->publishedInListings()
+            ->withActiveTranslations()
+            ->firstOrFail();
 
         $this->setSeo([
             'title'       => $item->title,

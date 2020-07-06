@@ -9,6 +9,10 @@
         'evaluation_updated_at' => [
             'sortable' => true,
         ],
+        'evaluation_average' => [
+            'sortable' => true,
+            'numeric'  => true,
+        ],
         'evaluation_total' => [
             'sortable' => true,
             'numeric'  => true,
@@ -37,9 +41,14 @@
             </div>
 
             <div class="message is-light is-marginless" v-for="section in props.row.details">
-                <div class="message-header is-size-6">
-                    <span v-text="section.title"></span>
-                    <span class="tag is-large" v-text="section.average"></span>
+                <div class="message-header is-size-6 columns is-centered is-marginless">
+                    <span class="column" v-text="section.title"></span>
+                    <span class="column is-narrow tag is-large">
+                        <small class="is-size-6 mr-1">{{ __('dashboard.table.section_average') }}</small> @{{ section.average }}
+                    </span>
+                    <span class="column is-narrow tag is-large">
+                        <small class="is-size-6 mr-1">{{ __('dashboard.table.section_total') }}</small> @{{ section.total }}
+                    </span>
                 </div>
                 <div class="message-body">
                     <div class="columns is-centered" v-for="criterion, criterionIndex in section.criteria">

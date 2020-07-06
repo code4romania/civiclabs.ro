@@ -47,7 +47,6 @@
                                 } else {
                                     $url = route($element['route'], $element['params'][ app()->getLocale() ] ?? $element['params'] ?? []);
                                 }
-
                             @endphp
 
                             <li class="links-item">
