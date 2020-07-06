@@ -145,7 +145,7 @@
         @formField('block_editor', [
             'withoutSeparator' => false,
             'blocks' => [
-                'byproducts'
+                'byproducts', 'singleCheckbox'
             ]
         ])
     </a17-fieldset>
