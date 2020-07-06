@@ -1,6 +1,6 @@
 @php
     $customorderedList = $block->browserIds('custombyproduct');
-    $custombyproduct = App\Models\Byproduct::find($customorderedList);
+    $customitem = App\Models\Byproduct::find($customorderedList)->first();
 
     switch ($block->input('width')) {
         case 'quarter':
@@ -20,7 +20,6 @@
     }
 @endphp
 
-@foreach ($custombyproduct as $customitem)
 <div class="column is-{{ $byproductWidth }} is-6-tablet is-{{ $byproductWidth }}-widescreen">
         <div class="card">
             @if ($customitem->hasImage('image'))
@@ -124,4 +123,3 @@
             @endif
         </div>
     </div>
-@endforeach
