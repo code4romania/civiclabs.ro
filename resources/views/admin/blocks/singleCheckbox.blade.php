@@ -2,7 +2,6 @@
     'name'       => 'title',
     'type'       => 'text',
     'label'      => 'Title',
-    'required'   => true,
     'translated' => true,
     'maxlength'  => 100,
 ])
@@ -19,7 +18,6 @@
     'name'       => 'btn_text',
     'type'       => 'text',
     'label'      => 'Button text',
-    'required'   => true,
     'translated' => true,
     'maxlength'  => 100,
 ])
@@ -28,7 +26,15 @@
     'name'       => 'a_text',
     'type'       => 'text',
     'label'      => 'Link text',
-    'required'   => true,
     'translated' => true,
     'maxlength'  => 100,
+])
+
+@formField('input', [
+    'name'        => 'a_url',
+    'type'        => 'text',
+    'label'       => 'Link url',
+    'placeholder' => 'http://link-example.com',
+    'translated'  => true,
+    'maxlength'   => 100,
 ])

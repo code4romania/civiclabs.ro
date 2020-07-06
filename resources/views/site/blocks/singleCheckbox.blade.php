@@ -5,7 +5,7 @@
         close="close notification"
         agree-label="{{ $block->translatedinput('btn_text') }}"
         more-label="{{ $block->translatedinput('a_text') }}"
-        more-url="{{ route('pages.show', ['page' => 'gdpr']) }}"
+        more-url="{{ $block->translatedinput('a_url') }}"
         action="{{ route('session.checkboxConsent') }}"
     ></c-cookie-consent>
 @endif

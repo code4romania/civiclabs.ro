@@ -96,7 +96,7 @@ return [
             'component'  => 'a17-block-evalsection',
         ],
         'singleCheckbox' => [
-            'title'      => 'GDPR',
+            'title'      => 'Checkbox pop-up',
             'icon'       => 'check',
             'component'  => 'a17-block-singlecheckbox',
         ],
