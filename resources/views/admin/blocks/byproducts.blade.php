@@ -6,7 +6,7 @@
     'max'         => 2,
 ])
 
-<div style="margin_top: 15px !important;">
+<div style="margin-top: 15px !important;">
     Icon <a href="https://material.io/resources/icons/?style=baseline"  target="_blank">(see all icons here)</a>
 </div>
 
