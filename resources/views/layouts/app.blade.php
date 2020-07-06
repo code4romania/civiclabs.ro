@@ -19,7 +19,6 @@
     <link rel="manifest" href="{{ asset('assets/favicons/site.webmanifest') }}">
     <link rel="mask-icon" href="{{ asset('assets/favicons/safari-pinned-tab.svg') }}" color="#ffcc00">
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <meta name="msapplication-TileColor" content="#000000">
     <meta name="msapplication-config" content="{{ asset('assets/favicons/browserconfig.xml') }}">

@@ -40,7 +40,7 @@
 ])
 
 <div style="margin-top: 15px !important;">
-    Icons <a href="https://material.io/resources/icons/?style=baseline"  target="_blank">(see all icons here)</a>
+    Icon <a href="https://material.io/resources/icons/?style=baseline"  target="_blank">(see all icons here)</a>
 </div>
 
 @formField('select', [
