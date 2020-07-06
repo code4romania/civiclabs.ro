@@ -7,13 +7,13 @@
 ])
 
 <div style="margin-top: 15px !important;">
-    Icon <a href="https://material.io/resources/icons/?style=baseline"  target="_blank">(see all icons here)</a>
+    Icons <a href="https://material.io/resources/icons/?style=baseline"  target="_blank">(see all icons here)</a>
 </div>
 
 @formField('select', [
     'name' => 'icon',
     'label' => '',
-    'placeholder' => 'Add icon',
+    'placeholder' => 'Add title icon',
     'options' => [
         [ 'value' => "", 'label' => 'no icon' ],
         [ 'value' => "3d_rotation", 'label' => '3d_rotation' ],
@@ -237,10 +237,10 @@
 
 @formField('color', [
     'name'           => 'background_color',
-    'label'          => 'Background color',
+    'label'          => 'Title background color',
 ])
 
 @formField('color', [
     'name'           => 'text_color',
-    'label'          => 'Text color',
+    'label'          => 'Title text color',
 ])
