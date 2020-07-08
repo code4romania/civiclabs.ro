@@ -6,14 +6,6 @@
     'maxlength'  => 100,
 ])
 
-@formField('input', [
-    'name'       => 'cookie_title',
-    'type'       => 'text',
-    'label'      => 'Cookie Title',
-    'maxlength'  => 100,
-    'required'   => true
-])
-
 @formField('wysiwyg', [
     'name'           => 'description',
     'label'          => 'Description',
