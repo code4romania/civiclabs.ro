@@ -41,4 +41,4 @@ Route::group([
 
 Route::get('/img/{path}', 'GlideController@show')->where('path', '.*');
 Route::post('/cookieConsent', 'SessionController@cookieConsent')->name('session.cookieConsent');
-Route::post('/checkboxConsent', 'SessionController@checkboxConsent')->name('session.checkboxConsent');
+Route::post('/checkboxConsent/{title}', 'SessionController@checkboxConsent')->name('session.checkboxConsent');
