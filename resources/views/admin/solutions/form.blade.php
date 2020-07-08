@@ -145,7 +145,8 @@
         @formField('block_editor', [
             'withoutSeparator' => false,
             'blocks' => [
-                'byproducts'
+                'byproducts',
+                'custombyproduct'
             ]
         ])
     </a17-fieldset>
