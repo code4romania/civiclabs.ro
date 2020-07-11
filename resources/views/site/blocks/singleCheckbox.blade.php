@@ -1,4 +1,4 @@
-@if (!session('checkboxConsent' . str_replace(' ', '-', strtolower(trim($block->translatedinput('title'))))))
+@if (!session('checkboxConsent' . Str::slug($block->translatedinput('title'))))
     <c-cookie-consent
         title = "{{ $block->translatedinput('title') }}"
         message = "{{ strip_tags($block->translatedinput('description')) }}"
@@ -7,6 +7,6 @@
         more-label="{{ $block->translatedinput('a_text') }}"
         more-url="{{ $block->translatedinput('a_url') }}"
         action="{{ route('session.checkboxConsent', ['identifier'
-            => str_replace(' ', '-', strtolower(trim($block->translatedinput('title'))))]) }}"
+            => Str::slug($block->translatedinput('title'))]) }}"
     ></c-cookie-consent>
 @endif
