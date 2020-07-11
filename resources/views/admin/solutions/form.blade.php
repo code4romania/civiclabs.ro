@@ -146,7 +146,8 @@
             'withoutSeparator' => false,
             'blocks' => [
                 'byproducts',
-                'custombyproduct'
+                'custombyproduct',
+                'singleCheckbox'
             ]
         ])
     </a17-fieldset>

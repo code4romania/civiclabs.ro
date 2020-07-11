@@ -2,6 +2,7 @@
     <div class="notices is-bottom">
         <b-notification :active.sync="isActive" position="is-bottom-right" :aria-close-label="close" @close="this.closePopup">
             <div class="content">
+                <p class="is-size-7" v-text="title"></p>
                 <p class="is-size-7" v-text="message"></p>
                 <div class="buttons are-small">
                     <b-button type="is-success" @click="this.closePopup" v-text="agreeLabel" />
@@ -24,6 +25,10 @@
         name: 'CCookieConsent',
         props: {
             action: {
+                type: String,
+                default: '',
+            },
+            title: {
                 type: String,
                 default: '',
             },

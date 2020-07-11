@@ -100,6 +100,11 @@ return [
             'icon'       => 'check',
             'component'  => 'a17-block-evalsection',
         ],
+        'singleCheckbox' => [
+            'title'      => 'Checkbox pop-up',
+            'icon'       => 'check',
+            'component'  => 'a17-block-singlecheckbox',
+        ],
     ],
     'repeaters' => [
         'accordionItem' => [
