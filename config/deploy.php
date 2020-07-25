@@ -1,5 +1,34 @@
 <?php
 
+$hosts = [];
+
+if (env('DEPLOY_PRODUCTION_HOSTNAME')) {
+    $hosts[env('DEPLOY_PRODUCTION_HOSTNAME')] = [
+        'stage'            => 'production',
+        'hostname'         => env('DEPLOY_PRODUCTION_HOSTNAME'),
+        'deploy_path'      => env('DEPLOY_PRODUCTION_PATH', '/var/www/production'),
+        'writable_mode'    => env('DEPLOY_PRODUCTION_WRITABLE_MODE', 'chmod'),
+        'http_user'        => env('DEPLOY_PRODUCTION_HTTP_USER', 'www-data'),
+        'user'             => env('DEPLOY_PRODUCTION_USER', 'ubuntu'),
+        'ssh_multiplexing' => env('DEPLOY_PRODUCTION_SSH_MULTIPLEXING', true),
+        'port'             => env('DEPLOY_PRODUCTION_SSH_PORT', 22),
+    ];
+}
+
+if (env('DEPLOY_STAGING_HOSTNAME')) {
+    $hosts[env('DEPLOY_STAGING_HOSTNAME')] = [
+        'stage'            => 'staging',
+        'hostname'         => env('DEPLOY_STAGING_HOSTNAME'),
+        'deploy_path'      => env('DEPLOY_STAGING_PATH', '/var/www/staging'),
+        'writable_mode'    => env('DEPLOY_STAGING_WRITABLE_MODE', 'chmod'),
+        'http_user'        => env('DEPLOY_STAGING_HTTP_USER', 'www-data'),
+        'user'             => env('DEPLOY_STAGING_USER', 'ubuntu'),
+        'ssh_multiplexing' => env('DEPLOY_STAGING_SSH_MULTIPLEXING', true),
+        'port'             => env('DEPLOY_STAGING_SSH_PORT', 22),
+    ];
+}
+
+
 return [
 
     /*
@@ -125,28 +154,7 @@ return [
     |
     */
 
-    'hosts' => [
-        env('DEPLOY_PRODUCTION_HOSTNAME') => [
-            'stage'            => 'production',
-            'hostname'         => env('DEPLOY_PRODUCTION_HOSTNAME'),
-            'deploy_path'      => env('DEPLOY_PRODUCTION_PATH', '/var/www/production'),
-            'writable_mode'    => env('DEPLOY_PRODUCTION_WRITABLE_MODE', 'chmod'),
-            'http_user'        => env('DEPLOY_PRODUCTION_HTTP_USER', 'www-data'),
-            'user'             => env('DEPLOY_PRODUCTION_USER', 'ubuntu'),
-            'ssh_multiplexing' => env('DEPLOY_PRODUCTION_SSH_MULTIPLEXING', true),
-            'port'             => env('DEPLOY_PRODUCTION_SSH_PORT', 22),
-        ],
-        env('DEPLOY_STAGING_HOSTNAME') => [
-            'stage'            => 'staging',
-            'hostname'         => env('DEPLOY_STAGING_HOSTNAME'),
-            'deploy_path'      => env('DEPLOY_STAGING_PATH', '/var/www/staging'),
-            'writable_mode'    => env('DEPLOY_STAGING_WRITABLE_MODE', 'chmod'),
-            'http_user'        => env('DEPLOY_STAGING_HTTP_USER', 'www-data'),
-            'user'             => env('DEPLOY_STAGING_USER', 'ubuntu'),
-            'ssh_multiplexing' => env('DEPLOY_STAGING_SSH_MULTIPLEXING', true),
-            'port'             => env('DEPLOY_STAGING_SSH_PORT', 22),
-        ],
-    ],
+    'hosts' => $hosts,
 
     /*
     |--------------------------------------------------------------------------

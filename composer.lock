@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9b0ccf4b618c95aa3abd186dfe700356",
+    "content-hash": "fca9047b2f616a6b53b1925fdbce1269",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -9051,6 +9051,7 @@
                 "slack",
                 "yarn"
             ],
+            "abandoned": true,
             "time": "2019-06-27T06:47:18+00:00"
         },
         {
@@ -9214,26 +9215,25 @@
         },
         {
             "name": "lorisleiva/laravel-deployer",
-            "version": "v0.2.17",
+            "version": "v0.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/lorisleiva/laravel-deployer.git",
-                "reference": "ebb3a2bf79ec994c47b05db308b646bbc293e891"
+                "reference": "615ef1b18845bee60a22118c16cf532c95b57cb2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/lorisleiva/laravel-deployer/zipball/ebb3a2bf79ec994c47b05db308b646bbc293e891",
-                "reference": "ebb3a2bf79ec994c47b05db308b646bbc293e891",
+                "url": "https://api.github.com/repos/lorisleiva/laravel-deployer/zipball/615ef1b18845bee60a22118c16cf532c95b57cb2",
+                "reference": "615ef1b18845bee60a22118c16cf532c95b57cb2",
                 "shasum": ""
             },
             "require": {
                 "deployer/deployer": "^6.1",
                 "deployer/recipes": "^6.0",
-                "illuminate/support": "5.5.*|5.6.*|5.7.*|5.8.*|^6.0"
+                "illuminate/support": "^5.8|^6.0|^7.0"
             },
             "require-dev": {
-                "mockery/mockery": "^1.0",
-                "orchestra/testbench": "~3.0"
+                "orchestra/testbench": "~5.0"
             },
             "type": "library",
             "extra": {
@@ -9262,7 +9262,7 @@
                 }
             ],
             "description": "Laravel Deployer is a lightweight wrapper of Deployer giving Artisan the power of zero-downtime deployment.",
-            "time": "2019-12-27T14:21:28+00:00"
+            "time": "2020-04-07T13:22:32+00:00"
         },
         {
             "name": "mockery/mockery",
