@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class UpdateSolutionsTables extends Migration
+class AddRepositoriesColumnToDomainsTable extends Migration
 {
     public function up()
     {
