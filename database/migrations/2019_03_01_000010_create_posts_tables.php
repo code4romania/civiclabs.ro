@@ -44,11 +44,11 @@ class CreatePostsTables extends Migration
             $table->integer('position')->unsigned()->nullable();
             createDefaultRelationshipTableFields($table, 'person', 'post');
         });
-
     }
 
     public function down()
     {
+        Schema::dropIfExists('person_post');
         Schema::dropIfExists('post_revisions');
         Schema::dropIfExists('post_translations');
         Schema::dropIfExists('post_slugs');
