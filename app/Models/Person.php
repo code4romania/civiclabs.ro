@@ -14,6 +14,12 @@ class Person extends Model implements Sortable
 {
     use HasBlocks, HasTranslation, HasSlug, HasMedias, HasPosition;
 
+    protected $with = [
+        'translations',
+        'medias',
+        'slugs',
+    ];
+
     protected $fillable = [
         'name',
         'published',

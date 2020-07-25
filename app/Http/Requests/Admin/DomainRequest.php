@@ -8,11 +8,17 @@ class DomainRequest extends Request
 {
     public function rulesForCreate()
     {
-        return [];
+        return [
+            'research_percentage' => 'nullable|numeric|lte:100',
+            'prototyping_percentage' => 'nullable|numeric|lte:100'
+        ];
     }
 
     public function rulesForUpdate()
     {
-        return [];
+        return [
+            'research_percentage' => 'nullable|numeric|lte:100',
+            'prototyping_percentage' => 'nullable|numeric|lte:100'
+        ];
     }
 }

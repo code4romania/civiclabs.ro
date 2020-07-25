@@ -1,8 +1,7 @@
 <?php
 
 use A17\Twill\Models\Feature;
-use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Relations\Relation;
+use Illuminate\Support\Facades\Cache;
 use Leewillis77\CachedEmbed\CachedEmbed;
 
 function getEmbedForUrl($url)
@@ -35,15 +34,22 @@ function mapTableColumns($options, $name)
 
 function getFeaturedMenuItems($bucketKey)
 {
-    $bucketables = collect(config("twill.buckets.navigation.buckets.${bucketKey}.bucketables"))
-        ->pluck('module');
+    return Cache::remember("menu-items-{$bucketKey}", now()->addMinutes(5), function () use ($bucketKey) {
+        $bucketables = collect(config("twill.buckets.navigation.buckets.${bucketKey}.bucketables"))
+            ->pluck('module');
 
-    return Feature::where('bucket_key', $bucketKey)->get()->filter(function ($feature) use ($bucketables, $bucketKey) {
-        return $bucketables->contains($feature->featured_type);
-    })->map(function ($feature) {
-        return [
-            'title' => $feature->featured->title,
-            'url'   => Localization::getLocalizedURL(null, $feature->featured->slug),
-        ];
+        return Feature::with([
+            'featured',
+            'featured.slugs',
+        ])
+            ->where('bucket_key', $bucketKey)
+            ->whereIn('featured_type', $bucketables)
+            ->get()
+            ->map(function ($feature) {
+                return [
+                    'title' => $feature->featured->title,
+                    'url'   => Localization::getLocalizedURL(null, $feature->featured->slug),
+                ];
+            });
     });
 }

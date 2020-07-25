@@ -6,6 +6,9 @@
 // Set our styles
 @import 'variables/all';
 
+// Import material-icons-design
+@import '~material-design-icons/iconfont/material-icons.css';
+
 // Import Bulma and Buefy styles
 @import '~bulma';
 @import '~buefy/src/scss/buefy';

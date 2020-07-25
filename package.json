@@ -28,7 +28,7 @@
         "eslint": "^6.8.0",
         "eslint-plugin-vue": "^6.1.2",
         "laravel-mix": "^5.0.1",
-        "lodash": "^4.17.15",
+        "lodash": "^4.17.19",
         "lodash.debounce": "^4.0.8",
         "purify-css": "^1.2.5",
         "purifycss-webpack": "^0.7.0",
@@ -44,6 +44,8 @@
         "@mdi/font": "^4.8.95",
         "buefy": "^0.8.10",
         "bulma": "^0.8.0",
-        "vue": "^2.6.11"
+        "material-design-icons": "^3.0.1",
+        "vue": "^2.6.11",
+        "vue-awesome-swiper": "^3.1.3"
     }
 }

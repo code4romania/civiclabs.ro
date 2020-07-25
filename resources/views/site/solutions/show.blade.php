@@ -84,7 +84,13 @@
 
         <div class="section">
             <div class="container">
-                {!! $item->renderBlocks(false) !!}
+                <section class="section block block-byproducts">
+                    <div class="container">
+                        <div class="columns is-multiline">
+                            {!! $item->renderBlocks(false) !!}
+                        </div>
+                    </div>
+                </section>
             </div>
         </div>
 

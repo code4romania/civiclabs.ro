@@ -9,6 +9,10 @@ use App\Models\Solution;
 
 class ApplicationSubmission extends Model
 {
+    protected $with = [
+        'solution',
+    ];
+
     protected $casts = [
         'data' => 'array',
     ];

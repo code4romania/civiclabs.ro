@@ -16,6 +16,10 @@ class Page extends Model implements Sortable
 {
     use HasBlocks, HasTranslation, HasSlug, HasMedias, HasRevisions, HasPosition, NodeTrait;
 
+    protected $with = [
+        'translations',
+    ];
+
     protected $fillable = [
         'published',
         'title',

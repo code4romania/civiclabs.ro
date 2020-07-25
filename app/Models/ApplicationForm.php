@@ -15,6 +15,10 @@ class ApplicationForm extends Model
 {
     use HasBlocks, HasTranslation, HasRevisions;
 
+    protected $with = [
+        'translations',
+    ];
+
     protected $fillable = [
         'published',
         'title',

@@ -10,4 +10,9 @@ class SessionController extends Controller
     {
         $request->session()->put('cookieConsent', true);
     }
+
+    public function checkboxConsent(Request $request, $identifier)
+    {
+        $request->session()->put('checkboxConsent' . $identifier, true);
+    }
 }

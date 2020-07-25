@@ -43,6 +43,14 @@ class DashboardUserController extends ModuleController
         ],
     ];
 
+    /*
+     * Relations to eager load for the index view
+     */
+    protected $indexWith = [
+        'partners',
+        'solutions',
+    ];
+
     protected $filters = [
         'role' => 'user_role',
     ];

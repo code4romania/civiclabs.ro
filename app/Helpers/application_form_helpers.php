@@ -147,12 +147,14 @@ function getEvalFieldsBySection($blocks)
         ->map(function ($section, $sectionIndex) use ($blocks) {
             return [
                 'title' => $section->translatedinput('name'),
+                'description' => $section->translatedinput('description'),
                 'criteria' => $blocks
                     ->where('type', 'evalField')
                     ->where('parent_id', $section->id)
                     ->map(function ($field, $fieldIndex) {
                         return [
-                            'label' => $field->translatedinput('label'),
+                            'label'  => $field->translatedinput('label'),
+                            'weight' => intval($field->input('weight') ?? 0),
                         ];
                     })
                     ->values(),

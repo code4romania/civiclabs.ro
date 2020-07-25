@@ -65,6 +65,11 @@ return [
             'icon'       => 'text',
             'component'  => 'a17-block-byproducts',
         ],
+        'custombyproduct' => [
+            'title'      => 'Custom Byproduct',
+            'icon'       => 'text',
+            'component'  => 'a17-block-custombyproduct',
+        ],
         'domains' => [
             'title'      => 'Domains',
             'icon'       => 'text',
@@ -94,6 +99,11 @@ return [
             'title'      => 'Evaluation Section',
             'icon'       => 'check',
             'component'  => 'a17-block-evalsection',
+        ],
+        'singleCheckbox' => [
+            'title'      => 'Checkbox pop-up',
+            'icon'       => 'check',
+            'component'  => 'a17-block-singlecheckbox',
         ],
     ],
     'repeaters' => [

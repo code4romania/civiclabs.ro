@@ -29,11 +29,9 @@
 
                     <p class="is-size-7">{{ __('solution.ngo.' . $ngoType) }}</p>
 
-                    <div class="horizontal-scroll">
-                        @foreach ($item->$ngoType as $ngo)
-                            @include('site.partials.partner', ['height' => 40, 'partner' => $ngo, 'class' => 'media-right is-narrow'])
-                        @endforeach
-                    </div>
+                    <c-partners-stripe
+                        :partners="{{ json_encode($ngos) }}"
+                    ></c-partners-stripe>
 
                 </div>
             </div>
