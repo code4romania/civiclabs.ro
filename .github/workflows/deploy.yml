@@ -1,15 +1,18 @@
 on:
   push:
     branches:
-      - '!master'
-  pull_request:
-    branches:
       - master
 
-name: Build
+name: Deploy
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
+    env:
+      APP_ENV: "ci"
+      APP_KEY: "base64:eA2N1E6oYSeaUl5XSfDUUdI4Qdc/bN1khF8C0JFPZeM="
+      DEPLOY_PRODUCTION_HOSTNAME: "civiclabs.ro"
+      DEPLOY_PRODUCTION_PATH: "/var/www/civiclabs.ro"
+      DEPLOY_REPOSITORY: "git@github.com:code4romania/civiclabs.ro.git"
     steps:
     - uses: actions/checkout@v2
 
@@ -54,3 +57,17 @@ jobs:
       run: npm run twill-build
     - name: build frontend
       run: npm run production
+
+    # Deploy
+    - name: Setup SSH Keys and known_hosts
+      env:
+        SSH_AUTH_SOCK: /tmp/ssh_agent.sock
+      run: |
+        mkdir -p ~/.ssh
+        ssh-keyscan $DEPLOY_PRODUCTION_HOSTNAME >> ~/.ssh/known_hosts
+        ssh-agent -a $SSH_AUTH_SOCK > /dev/null
+        ssh-add - <<< "${{ secrets.SSH_PRIVATE_KEY }}"
+    - name: Deploy
+      env:
+        SSH_AUTH_SOCK: /tmp/ssh_agent.sock
+      run: php artisan deploy production
