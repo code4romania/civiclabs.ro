@@ -1,5 +1,6 @@
 @php
     $ngoType = (!$item->implementers->count()) ? ('applicants') : ('implementers');
+    $ngos = $ngos ?? [];
 @endphp
 
 <aside class="solution-partners notification">
