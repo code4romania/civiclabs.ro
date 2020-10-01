@@ -87,6 +87,7 @@ Deploying to a remote host is done through `php artisan deploy <stage>`, using [
 * Vote for popular feature requests.
 * File a bug in GitHub Issues.
 * Email us with other feedback contact@code4.ro
+********
 
 ## License
 
