@@ -58,4 +58,4 @@
     </div>
 </div>
 
-@include('site.solutions.partner-stripe')
+{{-- @include('site.solutions.partner-stripe') --}}
