@@ -141,6 +141,7 @@ return [
         'php_fpm_service'     => 'php7.3-fpm',
         'writable_use_sudo'   => true,
         'writable_chmod_mode' => '0775',
+        // phpcs:ignore
         'composer_options'    => 'install --verbose --prefer-dist --no-progress --no-interaction --no-dev --optimize-autoloader',
     ],
 
