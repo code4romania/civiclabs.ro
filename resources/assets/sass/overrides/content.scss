@@ -175,7 +175,15 @@ dl {
     }
 
     .logo {
-        height: 40px;
+        height: 30px;
+
+        @include tablet {
+            height: 35px;
+        }
+    }
+
+    .container.is-fluid {
+        padding: 0;
     }
 }
 
