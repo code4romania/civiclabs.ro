@@ -8,6 +8,7 @@ return [
     'blog'      => 'Blog',
     'login'     => 'Login',
     'donate'    => 'Donează',
+    'putem'     => 'Planul nostru',
 
     'links'     => 'Linkuri utile',
 

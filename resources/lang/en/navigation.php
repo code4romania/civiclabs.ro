@@ -8,6 +8,7 @@ return [
     'blog'      => 'Blog',
     'login'     => 'Login',
     'donate'    => 'Donate',
+    'putem'     => 'Our plan',
 
     'links'     => 'Links',
 

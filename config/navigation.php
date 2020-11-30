@@ -21,8 +21,12 @@ return [
         ],
         [
             'id'    => 'donate',
-            'url'   => 'https://code4.ro/ro/doneaza/',
-        ]
+            'url'   => 'https://code4.ro/ro/doneaza',
+        ],
+        [
+            'id'    => 'putem',
+            'url'   => 'https://code4.ro/ro/putem',
+        ],
     ],
 
 ];
